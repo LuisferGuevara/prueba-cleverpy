@@ -1,17 +1,21 @@
 import { ActionType, StateType } from "./types";
 
-const INITAL_STATE: StateType = {
+const INITIAL_STATE: StateType = {
   comments: [],
   isLoading: false,
   error: false,
 };
 
-export const commentReducer = (state = INITAL_STATE, action: ActionType): StateType => {
-  const cases: Record<string, StateType> = {
-    ISLOADING_COMMENTS: { ...state, comments: [], isLoading: true, error: false },
-    GET_COMMENTS: { ...state, comments: action.payload, isLoading: false, error: false },
-    ERROR_COMMENTS: { ...state, comments: [], isLoading: false, error: true },
-  };
-
-  return cases[action.type] || state;
+export const commentReducer = (state = INITIAL_STATE, action: ActionType): StateType => {
+  switch (action.type) {
+    case "IS_LOADING_COMMENTS":
+      return { ...state, comments: [], isLoading: true, error: false };
+    case "GET_COMMENTS":
+      return { ...state, comments: action.payload, isLoading: false, error: false };
+    case "ERROR_COMMENTS":
+      return { ...state, comments: [], isLoading: false, error: true };
+    default:
+      return state;
+  }
 };
+

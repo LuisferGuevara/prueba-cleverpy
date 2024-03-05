@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../Redux/types";
 import LoginAPI from "../Services/LoginApi";
+import { ROUTES } from "../Routes/routes";
 
 const Header: FC = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const Header: FC = () => {
   const logged = useSelector((state: RootState) => state.login.logged);
   const logoutAction = () => {
     LoginAPI.logout(dispatch);
-    navigate("/login");
+    navigate(ROUTES.LOGIN); 
   };
 
   return (

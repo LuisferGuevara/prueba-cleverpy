@@ -1,26 +1,28 @@
-import { Post, User } from "./../Types/consts.d";
 import axios, { AxiosRequestConfig } from "axios";
+import { Post, User } from "../Types/consts.d"; 
 
 import { config } from "./config";
 
 const serviceMethods = {
-  // Get
+  // Método GET
   async get(endpoint: string) {
     const res = await axios.get(config.baseUrl + endpoint);
     return res.data;
   },
 
-  // Put
+  // Método PUT
   async put(endpoint: string, data: Post | User, axiosConfig?: AxiosRequestConfig) {
     const res = await axios.put(config.baseUrl + endpoint, data, axiosConfig);
     return res.data;
   },
-  // Delete
+
+  // Método DELETE
   async delete(endpoint: string, id: string) {
     const res = await axios.delete(config.baseUrl + endpoint + id);
     return res.data;
   },
-  // Create
+
+  // Método POST
   async post(endpoint: string, data: Post | User, axiosConfig?: AxiosRequestConfig) {
     const res = await axios.post(config.baseUrl + endpoint, data, axiosConfig);
     return res.data;
@@ -28,3 +30,4 @@ const serviceMethods = {
 };
 
 export default serviceMethods;
+

@@ -1,5 +1,8 @@
 import { FC } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { ROUTES } from "./routes";
+
+
 import HomePage from "../Pages/Home";
 import PostInfoPage from "../Pages/PostInfoPage";
 import PostEdit from "../Pages/PostEdit";
@@ -10,13 +13,13 @@ import LoginPage from "../Pages/LoginPage";
 const RoutesOutlet: FC = () => {
   return (
     <Routes>
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/post/:id" element={<PostInfoPage />} />
-      <Route path="post/edit/:id" element={<PostEdit />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/newpost" element={<NewPost />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="*" element={<Navigate to="/login" />} />
+      <Route path={ROUTES.HOME} element={<HomePage />} />
+      <Route path={ROUTES.POST_INFO} element={<PostInfoPage />} />
+      <Route path={ROUTES.POST_EDIT} element={<PostEdit />} />
+      <Route path={ROUTES.PROFILE} element={<Profile />} />
+      <Route path={ROUTES.NEW_POST} element={<NewPost />} />
+      <Route path={ROUTES.LOGIN} element={<LoginPage />} />
+      <Route path="*" element={<Navigate to={ROUTES.LOGIN} />} />
     </Routes>
   );
 };

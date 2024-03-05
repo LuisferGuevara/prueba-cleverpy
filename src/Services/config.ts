@@ -13,5 +13,5 @@ export const config = {
 };
 
 export const getUrl = (endpoint: keyof typeof config.endpoints) => {
-  return config.baseUrl + endpoint;
+  return config.baseUrl + config.endpoints[endpoint];
 };

@@ -6,7 +6,7 @@ import { config } from "./config";
 const PostAPI = {
   getPosts(dispatch: Dispatch): void {
     dispatch({
-      type: "ISLOADING_POSTS",
+      type: "IS_LOADING_POSTS",
       payload: null,
     });
     serviceMethods
@@ -28,7 +28,7 @@ const PostAPI = {
   },
   getPost(dispatch: Dispatch, id: string): void {
     dispatch({
-      type: "ISLOADING_POSTS",
+      type: "IS_LOADING_POSTS",
       payload: null,
     });
     serviceMethods
@@ -52,7 +52,7 @@ const PostAPI = {
     // FUNCTION JUST TO SHOW, NOT WORKING
 
     dispatch({
-      type: "ISLOADING_POSTS",
+      type: "IS_LOADING_POSTS",
       payload: null,
     });
     // "call" methodsServices -- PUT METHOD
@@ -65,7 +65,7 @@ const PostAPI = {
   deletePost(dispatch: Dispatch, id: number, posts: []): void {
     // FUNCTION JUST TO SHOW, NOT WORKING
     dispatch({
-      type: "ISLOADING_POSTS",
+      type: "IS_LOADING_POSTS",
       payload: null,
     });
     // "call" methodsServices -- DELETE METHOD
@@ -76,20 +76,21 @@ const PostAPI = {
       payload: posts,
     });
   },
-  createPost(dispatch: Dispatch, data: Post): void {
+  createPost(dispatch: Dispatch, data: Post): void{
     dispatch({
-      type: "ISLOADING_POST",
-      payload: null,
-    });
-    const localStoragePosts: [] = JSON.parse(localStorage.getItem("posts") || "[]");
-    const newLocalPosts = [...localStoragePosts, data];
-    localStorage.setItem("posts", JSON.stringify(newLocalPosts));
-    const result = [data] as unknown as [];
+      type: 'IS_LOADING_POST',
+      payload: null
+    })
+    const localStoragePosts: [] = JSON.parse(localStorage.getItem('posts') || '[]')
+    const newLocalPosts = [ ...localStoragePosts, data];
+    localStorage.setItem('posts', JSON.stringify(newLocalPosts));
+    const result = ([data] as unknown) as [];
     dispatch({
-      type: "CREATE_POST",
-      payload: result,
-    });
-  },
+      type: 'CREATE_POST',
+      payload: result
+    })
+  }
+  
 };
 
 export default PostAPI;

@@ -1,14 +1,14 @@
-import { LoggedUser } from "./../Types/consts.d";
+import { LoggedUser } from "../Types/consts.d"; 
 import { config } from "./config";
-
 import { Dispatch } from "./types";
 
 const LoginAPI = {
   login(dispatch: Dispatch, user: LoggedUser): void {
     dispatch({
-      type: "ISLOADING_LOGIN",
+      type: "IS_LOADING_LOGIN", 
       loggedUser: null,
     });
+
     if (user.username === config.admin.username && user.password === config.admin.password) {
       setTimeout(() => {
         window.localStorage.setItem("token", config.admin.token);
@@ -17,7 +17,7 @@ const LoginAPI = {
           loggedUser: user,
         });
       }, 1000);
-      console.log("usuario logeado con exito!");
+
     } else {
       dispatch({
         type: "ERROR_LOGIN",
@@ -40,8 +40,6 @@ const LoginAPI = {
     dispatch({
       type: "LOGOUT_LOGIN",
     });
-
-    console.log("usuario desloageado!");
   },
 };
 

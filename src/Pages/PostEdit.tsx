@@ -2,10 +2,10 @@ import { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { RootState } from "../Redux/types";
-
 import Frame from "../Components/Frame";
 import { Post } from "../Types/consts";
 import PostAPI from "../Services/PostAPI";
+
 
 type ParamsType = {
   id: string;
@@ -13,48 +13,46 @@ type ParamsType = {
 
 const PostEdit: FC = () => {
   const dispatch = useDispatch();
-
-  const post = useSelector((state: RootState) => state.posts);
   const { id } = useParams<ParamsType>();
+  const postState = useSelector((state: RootState) => state.posts);
 
   const getPost = () => {
     if (id) {
       PostAPI.getPost(dispatch, id);
     }
   };
+
+  useEffect(getPost, [dispatch, id]);
+
   const sendData = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const _id = e.currentTarget.id as unknown as HTMLInputElement;
-    const userId = e.currentTarget.userId as unknown as HTMLInputElement;
-    const title = e.currentTarget.title as unknown as HTMLInputElement;
-    const body = e.currentTarget.body as unknown as HTMLInputElement;
+    const formData = new FormData(e.currentTarget);
     const data: Post = {
-      id: parseInt(_id.value),
-      userId: parseInt(userId.value),
-      title: title.value,
-      body: body.value,
+      id: parseInt(formData.get('id') as string),
+      userId: parseInt(formData.get('userId') as string),
+      title: formData.get('title') as string,
+      body: formData.get('body') as string,
     };
     PostAPI.editPost(dispatch, data);
   };
 
-  useEffect(getPost, [dispatch, id]);
   return (
     <Frame>
-      {post.posts &&
-        post.posts?.map((post: Post) => (
-          <form key={post.id} onSubmit={(e) => sendData(e)}>
-            <label>Id:</label>
-            <input name="id" className="" defaultValue={post.id} />
-            <label>User ID:</label>
-            <input name="userId" className="" defaultValue={post.userId} />
-            <label>Title:</label>
-            <textarea name="title" className="" defaultValue={post.title}></textarea>
-            <label>Body:</label>
-            <textarea name="body" className="" defaultValue={post.body}></textarea>
-            <button className="">- Save -</button>
+      {postState.posts &&
+        postState.posts.map((post: Post) => (
+          <form key={post.id} className="post-edit__form" onSubmit={(e) => sendData(e)}>
+            <label className="post-edit__label">Id:</label>
+            <input name="id" className="post-edit__input" defaultValue={post.id.toString()} />
+            <label className="post-edit__label">User ID:</label>
+            <input name="userId" className="post-edit__input" defaultValue={post.userId.toString()} />
+            <label className="post-edit__label">Title:</label>
+            <textarea name="title" className="post-edit__textarea" defaultValue={post.title}></textarea>
+            <label className="post-edit__label">Body:</label>
+            <textarea name="body" className="post-edit__textarea" defaultValue={post.body}></textarea>
+            <button className="post-edit__button">- Save -</button>
           </form>
         ))}
-      {post.error && <h3>Error, post not found</h3>}
+      {postState.error && <h3>Error, post not found</h3>}
     </Frame>
   );
 };

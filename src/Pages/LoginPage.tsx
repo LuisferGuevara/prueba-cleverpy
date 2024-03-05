@@ -1,9 +1,9 @@
 import { FC, useState } from "react";
-import Frame from "../Components/Frame";
 import { useForm } from "react-hook-form";
-import LoginAPI from "../Services/LoginApi";
 import { Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import Frame from "../Components/Frame";
+import LoginAPI from "../Services/LoginApi";
 
 type FormData = {
   username: string;
@@ -12,14 +12,9 @@ type FormData = {
 
 const LoginPage: FC = () => {
   const dispatch = useDispatch();
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormData>();
   const [loggedIn, setLoggedIn] = useState(false);
   const [loginError, setLoginError] = useState(false);
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
   const onSubmit = handleSubmit((data) => {
     try {
@@ -37,18 +32,14 @@ const LoginPage: FC = () => {
   return (
     <Frame>
       <h1>MY COOL POST</h1>
-      <form onSubmit={onSubmit}>
+      <form className="login-form" onSubmit={onSubmit}>
         <p> Please Log in to Dashboard</p>
-        {loginError && <div className="form__error">User not found!</div>}
-        <input placeholder="Username" {...register("username", { required: true })} />
-        {errors.username && <span>Username Required</span>}
-        <input
-          placeholder="Password"
-          {...register("password", { required: true })}
-          type="password"
-        />
-        {errors.password && <span>Password Required</span>}
-        <button>Go in!</button>
+        {loginError && <div className="login-form__error">User not found!</div>}
+        <input placeholder="Username" {...register("username", { required: true })} className="login-form__input" />
+        {errors.username && <span className="login-form__error-message">Username Required</span>}
+        <input placeholder="Password" {...register("password", { required: true })} type="password" className="login-form__input" />
+        {errors.password && <span className="login-form__error-message">Password Required</span>}
+        <button className="login-form__button">Go in!</button>
       </form>
     </Frame>
   );

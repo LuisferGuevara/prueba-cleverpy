@@ -1,30 +1,24 @@
 import { FC, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { ROUTES } from "../Routes/routes";
+
 
 const GoBackButton: FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [goBack, setGoBack] = useState<boolean>(true);
-
-  const handleGoBack = () => {
-    const route = location.pathname.replace(/^\//, "");
-    if (route === "home" || route === "login") {
-      setGoBack(false);
-    } else {
-      setGoBack(true);
-    }
-  };
+  const [showGoBackButton, setShowGoBackButton] = useState<boolean>(true);
 
   useEffect(() => {
-    handleGoBack();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const route = location.pathname.replace(/^\//, "");
+    const shouldShowButton = ![ROUTES.HOME, ROUTES.LOGIN].includes(route);
+    setShowGoBackButton(shouldShowButton);
   }, [location]);
 
   return (
     <>
-      {goBack && (
-        <button onClick={() => navigate("/home")}>
+      {showGoBackButton && (
+        <button onClick={() => navigate(ROUTES.HOME)}>
           <i className="fa-solid fa-chevron-left"></i>
         </button>
       )}

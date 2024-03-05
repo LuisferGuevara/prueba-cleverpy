@@ -1,33 +1,24 @@
 import { FC, useEffect, useState } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../Redux/types";
-
 import Frame from "../Components/Frame";
 import Card from "../Components/Card";
-import { Post } from "../Types/consts";
 import UserService from "../Services/UserAPI";
 import PostAPI from "../Services/PostAPI";
+import { Post } from "../Types/consts";
+import { shuffleAPI } from "../Utils/shuffleApi";
 
 const HomePage: FC = () => {
   const [randomizedPosts, setRandomizedPosts] = useState<Post[]>([]);
   const [searchText, setSearchText] = useState<string>("");
 
   const dispatch = useDispatch();
-
   const posts = useSelector((state: RootState) => state.posts.posts);
   const postsError = useSelector((state: RootState) => state.posts.error);
   const users = useSelector((state: RootState) => state.users.users);
 
   useEffect(() => {
-    const shuffleArray = (array: Post[]) => {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    };
-    posts ? setRandomizedPosts(shuffleArray(posts)) : null;
+    posts && setRandomizedPosts(shuffleAPI(posts));
   }, [posts]);
 
   const filterPosts = (post: Post) => {
@@ -44,28 +35,26 @@ const HomePage: FC = () => {
     PostAPI.getPosts(dispatch);
     UserService.getUsers(dispatch);
   };
+
   useEffect(getData, [dispatch]);
 
   return (
-    <>
-      <Frame>
-        <input
-          className="input input--search"
-          placeholder="Search"
-          onChange={(e) => setSearchText(e.target.value)}
-        />
-        <p>Total:{posts?.length}</p>
-        {!postsError && posts && (
-          <div className="card__wrapper">
-            {randomizedPosts.filter(filterPosts).map((post: Post) => (
-              <Card key={post.id} post={post} posts={posts} users={users} />
-            ))}
-          </div>
-        )}
-        {postsError && <h3>Error, data not found</h3>}
-        {/* volver atras? boton?  */}
-      </Frame>
-    </>
+    <Frame>
+      <input
+        className="input input--search"
+        placeholder="Search"
+        onChange={(e) => setSearchText(e.target.value)}
+      />
+      <p className="total-posts">Total:{posts?.length}</p>
+      {!postsError && posts && (
+        <div className="card-wrapper">
+          {randomizedPosts.filter(filterPosts).map((post: Post) => (
+            <Card key={post.id} post={post} posts={posts} users={users} />
+          ))}
+        </div>
+      )}
+      {postsError && <h3>Error, data not found</h3>}
+    </Frame>
   );
 };
 

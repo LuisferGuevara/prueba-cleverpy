@@ -9,26 +9,25 @@ const initialState: StateType = {
 };
 
 export const loginReducer = (state = initialState, action: ActionType): StateType => {
-  const cases: Record<string, StateType> = {
-    ISLOADING_LOGIN: { ...state, loggedUser: null, logged: false, isLoading: true, error: false },
-    POST_LOGIN: {
-      ...state,
-      loggedUser: action.loggedUser,
-      logged: true,
-      isLoading: false,
-      error: false,
-    },
-    CHECK_LOGIN: {
-      ...state,
-      loggedUser: action.loggedUser,
-      logged: true,
-      isLoading: false,
-      error: false,
-    },
-    CHECKED_LOGIN: { ...state, isLoading: false, error: false, checked: true },
-    LOGOUT_LOGIN: { ...state, loggedUser: null, logged: false, isLoading: false, error: false },
-    ERROR_LOGIN: { ...state, loggedUser: null, logged: false, isLoading: false, error: true },
-  };
-
-  return cases[action.type] || state;
+  switch (action.type) {
+    case "IS_LOADING_LOGIN":
+      return { ...state, loggedUser: null, logged: false, isLoading: true, error: false };
+    case "POST_LOGIN":
+    case "CHECK_LOGIN":
+      return {
+        ...state,
+        loggedUser: action.loggedUser,
+        logged: true,
+        isLoading: false,
+        error: false,
+      };
+    case "CHECKED_LOGIN":
+      return { ...state, isLoading: false, error: false, checked: true };
+    case "LOGOUT_LOGIN":
+      return { ...state, loggedUser: null, logged: false, isLoading: false, error: false };
+    case "ERROR_LOGIN":
+      return { ...state, loggedUser: null, logged: false, isLoading: false, error: true };
+    default:
+      return state;
+  }
 };

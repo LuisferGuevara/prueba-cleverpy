@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import { Post } from "../Types/consts";
 import { Link, useNavigate } from "react-router-dom";
 import getUsername from "../Middlewares/getUsername";
-// import { useDispatch } from "react-redux";
 
 type PostCardType = {
   children?: React.ReactNode;
@@ -13,16 +12,11 @@ type PostCardType = {
 
 const Card: FC<PostCardType> = ({ post, users }) => {
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
-
-  //   const deletePost = (id: number, posts: []) => {
-  //     // PostApi.deletePost(dispatch, id, posts);
-  // };
 
   return (
     <article className="card card-post">
       <header>
-        <Link to={`/post/${post.id}`} className="card__link">
+        <Link to={`/post/${post.id}`} className="card__link" key={post.id}>
           <i className="fa-solid fa-angles-right"></i>
         </Link>
         <h3 className="card__title">{post.title}</h3>
@@ -33,17 +27,12 @@ const Card: FC<PostCardType> = ({ post, users }) => {
         <p className="card__id">Id:({post.userId}) </p>
       </main>
       <footer className="card__action">
-        <div className="btn-action">
-          Edit{" "}
-          <i
-            className="fa-solid fa-pen-to-square"
-            onClick={() => navigate(`/post/edit/${post.id}`)}
-          ></i>
+        <div className="btn-action" onClick={() => navigate(`/post/edit/${post.id}`)}>
+          Edit <i className="fa-solid fa-pen-to-square"></i>
         </div>
-        <div className="btn-action">
-          {/* Delete <i className="fa-solid fa-delete-left"  onClick={() => deletePost(post.id, posts)}></i> */}
+        {/* <div className="btn-action" onClick={() => deletePost(post.id, posts)}>
           Delete <i className="fa-solid fa-delete-left"></i>
-        </div>
+        </div> */}
       </footer>
     </article>
   );

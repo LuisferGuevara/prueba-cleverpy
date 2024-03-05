@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
-import Frame from "../Components/Frame";
 import { useDispatch } from "react-redux";
+import Frame from "../Components/Frame";
 import { Post } from "../Types/consts";
 import PostAPI from "../Services/PostAPI";
 
@@ -10,15 +10,12 @@ const NewPost: FC = () => {
 
   const sendData = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const _id = e.currentTarget.id as unknown as HTMLInputElement;
-    const userId = e.currentTarget.userId as unknown as HTMLInputElement;
-    const title = e.currentTarget.title as unknown as HTMLInputElement;
-    const body = e.currentTarget.body as unknown as HTMLInputElement;
+    const formData = new FormData(e.currentTarget);
     const data: Post = {
-      id: parseInt(_id.value),
-      userId: parseInt(userId.value),
-      title: title.value,
-      body: body.value,
+      id: parseInt(formData.get('id') as string),
+      userId: parseInt(formData.get('userId') as string),
+      title: formData.get('title') as string,
+      body: formData.get('body') as string,
     };
     setIsPostCreated(true);
     PostAPI.createPost(dispatch, data);
@@ -27,16 +24,16 @@ const NewPost: FC = () => {
   return (
     <Frame>
       {isPostCreated && <h3>Post created successfully</h3>}
-      <form onSubmit={(e) => sendData(e)}>
-        <label>Id:</label>
-        <input name="id" className="" placeholder="id" />
-        <label>User ID:</label>
-        <input name="userId" className="" placeholder="User ID" />
-        <label>Title:</label>
-        <textarea name="title" className="" placeholder="title"></textarea>
-        <label>Body:</label>
-        <textarea name="body" className="" placeholder="body"></textarea>
-        <button className="">- Save -</button>
+      <form className="new-post__form" onSubmit={(e) => sendData(e)}>
+        <label className="new-post__label">Id:</label>
+        <input name="id" className="new-post__input" placeholder="id" />
+        <label className="new-post__label">User ID:</label>
+        <input name="userId" className="new-post__input" placeholder="User ID" />
+        <label className="new-post__label">Title:</label>
+        <textarea name="title" className="new-post__textarea" placeholder="title"></textarea>
+        <label className="new-post__label">Body:</label>
+        <textarea name="body" className="new-post__textarea" placeholder="body"></textarea>
+        <button className="new-post__button">- Save -</button>
       </form>
     </Frame>
   );
