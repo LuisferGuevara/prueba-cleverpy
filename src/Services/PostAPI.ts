@@ -1,16 +1,17 @@
-import { Dispatch } from "./types.d";
+import { Dispatch } from "./types";
 
 import { config } from "./config";
 import methods from "./service.methods";
 import { Post } from "../Types/consts";
+import serviceMethods from "./service.methods";
 
-const PostService = {
+const PostApi = {
   getPosts(dispatch: Dispatch): void {
     dispatch({
       type: "ISLOADING_POSTS",
       payload: null,
     });
-    methods
+serviceMethods
       .get(config.endpoints.posts)
       .then((posts: []) => {
         const localPosts: [] = JSON.parse(localStorage.getItem("posts") || "[]");
@@ -32,7 +33,7 @@ const PostService = {
       type: "LOAD_POSTS",
       payload: null,
     });
-    methods
+   serviceMethods
       .get(config.endpoints.posts + `/${id}`)
       .then((post: Post) => {
         const result = [];
@@ -51,4 +52,4 @@ const PostService = {
   },
 };
 
-export default PostService;
+export default PostApi;

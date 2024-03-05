@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { config } from "./config";
 
-const methods = {
+const serviceMethods = {
   // Get method
   async get(endpoint: string) {
     const res = await axios.get(config.baseUrl + endpoint);
@@ -10,4 +10,4 @@ const methods = {
   },
 };
 
-export default methods;
+export default serviceMethods;

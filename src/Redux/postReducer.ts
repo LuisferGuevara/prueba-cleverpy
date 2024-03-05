@@ -1,12 +1,12 @@
 import { ActionType, StateType } from "./types";
 
-const initialState: StateType = {
+const INITAL_STATE: StateType = {
   posts: [],
   isLoading: false,
   error: false,
 };
 
-export const postReducer = (state = initialState, action: ActionType): StateType => {
+export const postReducer = (state = INITAL_STATE, action: ActionType): StateType => {
   const cases: Record<string, StateType> = {
     ISLOADING_POSTS: { ...state, posts: [], isLoading: true, error: false },
     GET_POSTS: { ...state, posts: action.payload, isLoading: false, error: false },

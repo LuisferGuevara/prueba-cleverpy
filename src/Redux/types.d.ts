@@ -1,10 +1,11 @@
 import { rootReducer } from "./store";
 
 export type StateType = {
-  posts?: [] | null;
   isLoading: boolean;
   error: boolean;
+  posts?: [] | null;
   users?: [] | null;
+  comments?: [] | null;
 };
 
 export type ActionType = {

@@ -2,11 +2,12 @@ import { FC, useEffect } from "react";
 import Frame from "../Components/Frame";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../Redux/types";
-import { Post } from "../Types/consts";
+import { Comment, Post } from "../Types/consts";
 import getUsername from "../Utils/getUsername";
 import { useNavigate, useParams } from "react-router-dom";
-import PostService from "../Services/CardsService";
-import UserService from "../Services/UserSerice";
+import PostApi from "../Services/postApi";
+import UserAPI from "../Services/UserAPI";
+import CommentAPI from "../Services/CommentAPI";
 type ParamsType = {
   id: string;
 };
@@ -17,12 +18,14 @@ const PostInfoPage: FC = () => {
 
   const post = useSelector((state: RootState) => state.posts);
   const users = useSelector((state: RootState) => state.users.users);
+  const comments = useSelector((state: RootState) => state.comments);
   const { id } = useParams<ParamsType>();
 
   const getPost = () => {
     if (id) {
-      PostService.getPost(dispatch, id);
-      UserService.getUsers(dispatch);
+      PostApi.getPost(dispatch, id);
+      UserAPI.getUsers(dispatch);
+      CommentAPI.getComments(dispatch, id);
     }
   };
   useEffect(getPost, [dispatch, id]);
@@ -31,14 +34,15 @@ const PostInfoPage: FC = () => {
       <div>
         {post.posts &&
           post.posts.map((post: Post) => (
-            <>
+            <div key={post.id}>
               <div>
                 <p className="card__author">Author: {getUsername(users, post)}</p>
                 <p className="card__id">User ID:({post.userId}) </p>
               </div>
-              <article key={post.id} className="card card-post">
+              <article className="card card-post">
                 <header>
                   <h3 className="card__title">{post.title}</h3>
+                  <p>{post.id}</p>
                 </header>
                 <main>
                   <p className="card__body">{post.body}</p>
@@ -53,10 +57,29 @@ const PostInfoPage: FC = () => {
                   </div>
                 </footer>
               </article>
-            </>
+            </div>
           ))}
         {post.error && <h3>Error, data not found</h3>}
       </div>
+      <section>
+        <h3>Coments: </h3>
+
+        {comments.comments &&
+          comments.comments?.map((comment: Comment) => (
+            <article key={comment.id} className="card ">
+              <header>
+                <h3>{comment.name}</h3>
+              </header>
+              <main>
+                <p>{comment.body}</p>
+              </main>
+              <footer>
+                <p>Written by: {comment.email}</p>
+              </footer>
+            </article>
+          ))}
+        {comments.error && <h3>Error, comments not found</h3>}
+      </section>
     </Frame>
   );
 };

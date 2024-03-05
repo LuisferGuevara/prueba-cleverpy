@@ -1,13 +1,14 @@
 import { config } from './config';
-import methods from './service.methods';
-import { Dispatch } from './types.d';
-const UserService = { 
+import serviceMethods from './service.methods';
+
+import { Dispatch } from './types';
+const UserAPI = { 
     getUsers(dispatch: Dispatch):void {
         dispatch({
             type: "ISLOADING_USERS",
             payload: null
         });
-        methods.get( config.endpoints.users)
+        serviceMethods.get( config.endpoints.users)
         .then((users) =>{
             dispatch({
                 type: "GET_USERS",
@@ -23,4 +24,4 @@ const UserService = {
     }
     
 }
-export default UserService
+export default UserAPI

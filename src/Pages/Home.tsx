@@ -2,11 +2,12 @@ import { FC, useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../Redux/types";
-import PostService from "../Services/CardsService";
+
 import Frame from "../Components/Frame";
 import Card from "../Components/Card";
 import { Post } from "../Types/consts";
-import UserService from "../Services/UserSerice";
+import UserService from "../Services/UserAPI";
+import PostApi from "../Services/postApi";
 
 const HomePage: FC = () => {
   const [randomizedPosts, setRandomizedPosts] = useState<Post[]>([]);
@@ -40,7 +41,7 @@ const HomePage: FC = () => {
   };
 
   const getData = () => {
-    PostService.getPosts(dispatch);
+    PostApi.getPosts(dispatch);
     UserService.getUsers(dispatch);
   };
   useEffect(getData, [dispatch]);
