@@ -8,7 +8,7 @@ import Card from "../Components/Card";
 import { Post } from "../Types/consts";
 import UserService from "../Services/UserSerice";
 
-const Home: FC = () => {
+const HomePage: FC = () => {
   const [randomizedPosts, setRandomizedPosts] = useState<Post[]>([]);
   const [searchText, setSearchText] = useState<string>("");
 
@@ -54,6 +54,7 @@ const Home: FC = () => {
           placeholder="Search"
           onChange={(e) => setSearchText(e.target.value)}
         />
+        <p>Total:{posts.length}</p>
         {!postsError && posts && (
           <div className="card__wrapper">
             {randomizedPosts.filter(filterPosts).map((post: Post) => (
@@ -67,4 +68,4 @@ const Home: FC = () => {
   );
 };
 
-export default Home;
+export default HomePage;
