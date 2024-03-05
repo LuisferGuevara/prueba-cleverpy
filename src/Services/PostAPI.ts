@@ -62,34 +62,20 @@ const PostApi = {
       payload: result,
     });
   },
-  // deletePost(dispatch: Dispatch, id: number, posts: []):void {
-  //     // FUNCTION JUST TO SHOW, NOT WORKING
-  //   dispatch({
-  //     type: 'ISLOADING_POSTS',
-  //     payload: null
-  //   });
-  //   // "call" methodsServices -- DELETE METHOD
-  //   const postIndex: number = posts.findIndex((post: Post) => post.id === id);
-  //   posts.splice(postIndex, 1);
-  //   dispatch({
-  //     type: 'GET_POSTS',
-  //     payload: posts,
-  //   })
-  // }
   deletePost(dispatch: Dispatch, id: number, posts: []): void {
+    // FUNCTION JUST TO SHOW, NOT WORKING
     dispatch({
-        type: 'ISLOADING_POSTS',
-        payload: null
+      type: "ISLOADING_POSTS",
+      payload: null,
     });
-    // Here should be executed methods.delete
-    // This is the fake solution
+    // "call" methodsServices -- DELETE METHOD
     const postIndex: number = posts.findIndex((post: Post) => post.id === id);
     posts.splice(postIndex, 1);
     dispatch({
-        type: 'GET_POSTS',
-        payload: posts
+      type: "GET_POSTS",
+      payload: posts,
     });
-}
+  },
 };
 
 export default PostApi;

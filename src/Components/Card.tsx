@@ -2,8 +2,7 @@ import React, { FC } from "react";
 import { Post } from "../Types/consts";
 import { Link, useNavigate } from "react-router-dom";
 import getUsername from "../Utils/getUsername";
-import { useDispatch } from "react-redux";
-import PostApi from "../Services/postApi";
+// import { useDispatch } from "react-redux";
 
 type PostCardType = {
   children?: React.ReactNode;
@@ -12,13 +11,13 @@ type PostCardType = {
   users: [] | null | undefined;
 };
 
-const Card: FC<PostCardType> = ({ post, users, posts }) => {
+const Card: FC<PostCardType> = ({ post, users }) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const deletePost = (id: number, posts: []) => {
-    PostApi.deletePost(dispatch, id, posts);
-};
+  //   const deletePost = (id: number, posts: []) => {
+  //     // PostApi.deletePost(dispatch, id, posts);
+  // };
 
   return (
     <article className="card card-post">
@@ -42,8 +41,8 @@ const Card: FC<PostCardType> = ({ post, users, posts }) => {
           ></i>
         </div>
         <div className="btn-action">
-          Delete <i className="fa-solid fa-delete-left"  onClick={() => deletePost(post.id, posts)}></i>
-   
+          {/* Delete <i className="fa-solid fa-delete-left"  onClick={() => deletePost(post.id, posts)}></i> */}
+          Delete <i className="fa-solid fa-delete-left"></i>
         </div>
       </footer>
     </article>
