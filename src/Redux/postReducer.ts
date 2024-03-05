@@ -1,4 +1,5 @@
-import { StateType, ActionType } from './types';
+import { ActionType, StateType } from "./types";
+
 
 const initialState: StateType = {
     posts: [],

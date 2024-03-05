@@ -1,13 +1,9 @@
-import { createStore } from 'redux';
-import { combineReducers } from 'redux';
-import { postReducer } from './postReducer';
-
-
+import { createStore } from "redux";
+import { combineReducers } from "redux";
+import { postReducer } from "./postReducer";
 
 const rootReducer = combineReducers({
-
-    posts: postReducer,
-   
+  posts: postReducer,
 });
 
 export const store = createStore(rootReducer);

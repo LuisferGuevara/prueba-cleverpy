@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Header from "./Components/Header";
-import Posts from "./Components/Posts";
+import Home from "./Pages/Home";
+
 import "./Styles/styles.scss"
 
 const App: FC = () => {
@@ -9,7 +10,7 @@ const App: FC = () => {
     <div className="app">
       <Header/>
 
-      <Posts/>
+      <Home/>
 
     
     </div>
