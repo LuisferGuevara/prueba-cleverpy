@@ -13,6 +13,10 @@ const Header: FC = () => {
       <div className="header__toggler">
         <i className="fa-solid fa-user" onClick={() => navigate("/profile")}></i>
       </div>
+      <div className="header__toggler">
+      <i className="fa-solid fa-square-plus" onClick={() => navigate("/newpost")}></i>
+
+      </div>
       <BurgerMenu />
       <button className="icon icon--logout"> cerrar sesion??</button>
     </header>

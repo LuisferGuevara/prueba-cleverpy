@@ -18,7 +18,7 @@ const UserAPI = {
       })
       .catch(() => {
         dispatch({
-          type: "ERRO_USERS",
+          type: "ERROR_USERS",
           payload: null,
         });
       });

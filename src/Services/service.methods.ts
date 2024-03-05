@@ -20,6 +20,12 @@ const serviceMethods = {
     const res = await axios.delete(config.baseUrl + endpoint + id);
     return res.data;
   },
+  // Create 
+  async post(endpoint: string, data: Post | User, axiosConfig?: AxiosRequestConfig){
+    const res = await axios.post(config.baseUrl + endpoint, data,axiosConfig)
+    return res.data
+  }
+
 };
 
 export default serviceMethods;

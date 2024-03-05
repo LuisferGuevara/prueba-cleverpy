@@ -28,7 +28,7 @@ const PostApi = {
   },
   getPost(dispatch: Dispatch, id: string): void {
     dispatch({
-      type: "LOAD_POSTS",
+      type: "ISLOADING_POSTS",
       payload: null,
     });
     serviceMethods
@@ -52,13 +52,13 @@ const PostApi = {
     // FUNCTION JUST TO SHOW, NOT WORKING
 
     dispatch({
-      type: "LOAD_POSTS",
+      type: "ISLOADING_POSTS",
       payload: null,
     });
     // "call" methodsServices -- PUT METHOD
     const result = [data] as unknown as [];
     dispatch({
-      type: "EDIT_POSTS",
+      type: "PUT_POSTS",
       payload: result,
     });
   },
@@ -76,6 +76,21 @@ const PostApi = {
       payload: posts,
     });
   },
+  createPost(dispatch: Dispatch, data: Post): void{
+    dispatch({
+      type: 'ISLOADING_POST',
+      payload: null
+    })
+    const localStoragePosts: [] = JSON.parse(localStorage.getItem('posts') || '[]')
+    const newLocalPosts = [ ...localStoragePosts, data];
+    localStorage.setItem('posts', JSON.stringify(newLocalPosts));
+    const result = ([data] as unknown) as [];
+    dispatch({
+      type: 'CREATE_POST',
+      payload: result
+    })
+  }
+  
 };
 
 export default PostApi;
