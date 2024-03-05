@@ -1,4 +1,4 @@
-import rootReducer from ".";
+import { rootReducer } from "./store";
 
 export type StateType = {
   posts?: [] | null;

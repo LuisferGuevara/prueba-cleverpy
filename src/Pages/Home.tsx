@@ -26,8 +26,7 @@ const HomePage: FC = () => {
       }
       return array;
     };
-
-    setRandomizedPosts(shuffleArray(posts));
+    posts ? setRandomizedPosts(shuffleArray(posts)) : null;
   }, [posts]);
 
   const filterPosts = (post: Post) => {
@@ -54,7 +53,7 @@ const HomePage: FC = () => {
           placeholder="Search"
           onChange={(e) => setSearchText(e.target.value)}
         />
-        <p>Total:{posts.length}</p>
+        <p>Total:{posts?.length}</p>
         {!postsError && posts && (
           <div className="card__wrapper">
             {randomizedPosts.filter(filterPosts).map((post: Post) => (
@@ -63,6 +62,7 @@ const HomePage: FC = () => {
           </div>
         )}
         {postsError && <h3>Error, data not found</h3>}
+        {/* volver atras? boton?  */}
       </Frame>
     </>
   );

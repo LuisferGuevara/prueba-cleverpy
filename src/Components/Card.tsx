@@ -14,7 +14,6 @@ const Card: FC<PostCardType> = ({ post, users }) => {
   const navigate = useNavigate();
 
   return (
-    // USAR SEMANTICO !!
     <article className="card card-post">
       <header>
         <Link to={`/post/${post.id}`} className="card__link">
