@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Post } from "../Types/consts";
 import { Link, useNavigate } from "react-router-dom";
-import getUsername from "../MIddlewares/getUsername";
+import getUsername from "../Middlewares/getUsername";
 // import { useDispatch } from "react-redux";
 
 type PostCardType = {

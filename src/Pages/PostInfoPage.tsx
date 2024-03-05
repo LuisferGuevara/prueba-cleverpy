@@ -3,7 +3,7 @@ import Frame from "../Components/Frame";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../Redux/types";
 import { Comment, Post } from "../Types/consts";
-import getUsername from "../MIddlewares/getUsername";
+import getUsername from "../Middlewares/getUsername";
 import { useNavigate, useParams } from "react-router-dom";
 
 import UserAPI from "../Services/UserAPI";

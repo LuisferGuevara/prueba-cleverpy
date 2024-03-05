@@ -12,7 +12,7 @@ const Header: FC = () => {
   const logged = useSelector((state: RootState) => state.login.logged);
   const logoutAction = () => {
     LoginAPI.logout(dispatch);
-    navigate("/login")
+    navigate("/login");
   };
 
   return (
@@ -32,7 +32,7 @@ const Header: FC = () => {
           <BurgerMenu />
           <button className="icon icon--logout" onClick={logoutAction}>
             {" "}
-            cerrar sesion??
+            <i className="fa-solid fa-right-from-bracket"></i>
           </button>
         </>
       )}
