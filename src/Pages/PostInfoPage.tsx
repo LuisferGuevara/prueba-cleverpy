@@ -28,6 +28,13 @@ const PostInfoPage: FC = () => {
       CommentAPI.getComments(dispatch, id);
     }
   };
+  const generateRandomDate = (): string => {
+    const randomMilliseconds = Math.floor(Math.random() * 315360000000);
+    const randomDate = new Date(Date.now() - randomMilliseconds);
+    const formattedDate = `${randomDate.getDate()}/${randomDate.getMonth() + 1}/${randomDate.getFullYear()}`;
+    return formattedDate;
+  };
+  
   useEffect(getPost, [dispatch, id]);
   return (
     <Frame>
@@ -43,6 +50,8 @@ const PostInfoPage: FC = () => {
                 <header>
                   <h3 className="card__title">{post.title}</h3>
                   <p>{post.id}</p>
+                  <div className="post__date">{generateRandomDate()}</div>
+
                 </header>
                 <main>
                   <p className="card__body">{post.body}</p>

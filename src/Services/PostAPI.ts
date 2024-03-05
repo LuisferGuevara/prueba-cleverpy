@@ -1,9 +1,7 @@
 import { Dispatch } from "./types";
-
-import { config } from "./config";
-
-import { Post } from "../Types/consts";
 import serviceMethods from "./service.methods";
+import { Post } from "../Types/consts";
+import { config } from "./config";
 
 const PostApi = {
   getPosts(dispatch: Dispatch): void {
@@ -49,6 +47,21 @@ const PostApi = {
           payload: null,
         });
       });
+  },
+  editPost(dispatch: Dispatch, data: Post): void {
+    // FUNCTION JUST TO SHOW, NOT WORKING
+
+    dispatch({
+      type: "LOAD_POSTS",
+      payload: null,
+    });
+    // "call" methodsServices -- PUT METHOD
+
+    const result = [data] as unknown as [];
+    dispatch({
+      type: "EDIT_POSTS",
+      payload: result,
+    });
   },
 };
 
