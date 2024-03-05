@@ -1,5 +1,5 @@
-import { LoggedUser } from './../Types/consts.d';
-import { config } from './config';
+import { LoggedUser } from "./../Types/consts.d";
+import { config } from "./config";
 
 import { Dispatch } from "./types";
 
@@ -17,7 +17,7 @@ const LoginAPI = {
           loggedUser: user,
         });
       }, 1000);
-      console.log("usuario logeado con exito!")
+      console.log("usuario logeado con exito!");
     } else {
       dispatch({
         type: "ERROR_LOGIN",
@@ -25,7 +25,8 @@ const LoginAPI = {
       });
     }
   },
-  checkSession(dispatch: Dispatch, token?: string | null): void {
+
+  checkLogin(dispatch: Dispatch, token?: string | null): void {
     if (token) {
       dispatch({
         type: "CHECK_LOGIN",
@@ -33,7 +34,15 @@ const LoginAPI = {
       });
     }
   },
-  
+
+  logout(dispatch: Dispatch): void {
+    window.localStorage.removeItem("token");
+    dispatch({
+      type: "LOGOUT_LOGIN",
+    });
+
+    console.log("usuario desloageado!");
+  },
 };
 
 export default LoginAPI;

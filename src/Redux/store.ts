@@ -9,7 +9,7 @@ export const rootReducer = combineReducers({
   posts: postReducer,
   users: userReducer,
   comments: commentReducer,
-  loging: loginReducer
+  login: loginReducer
 });
 
 export const store = createStore(rootReducer);

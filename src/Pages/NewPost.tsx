@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import Frame from "../Components/Frame";
 import { useDispatch } from "react-redux";
 import { Post } from "../Types/consts";
-import PostApi from "../Services/postApi";
+import PostAPI from "../Services/PostAPI";
 
 const NewPost: FC = () => {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const NewPost: FC = () => {
       body: body.value,
     };
     setIsPostCreated(true);
-    PostApi.createPost(dispatch, data);
+    PostAPI.createPost(dispatch, data);
   };
 
   return (

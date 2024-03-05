@@ -7,7 +7,7 @@ import Frame from "../Components/Frame";
 import Card from "../Components/Card";
 import { Post } from "../Types/consts";
 import UserService from "../Services/UserAPI";
-import PostApi from "../Services/postApi";
+import PostAPI from "../Services/PostAPI";
 
 const HomePage: FC = () => {
   const [randomizedPosts, setRandomizedPosts] = useState<Post[]>([]);
@@ -41,7 +41,7 @@ const HomePage: FC = () => {
   };
 
   const getData = () => {
-    PostApi.getPosts(dispatch);
+    PostAPI.getPosts(dispatch);
     UserService.getUsers(dispatch);
   };
   useEffect(getData, [dispatch]);

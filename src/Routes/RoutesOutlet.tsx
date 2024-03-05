@@ -14,9 +14,9 @@ const RoutesOutlet: FC = () => {
       <Route path="/post/:id" element={<PostInfoPage />} />
       <Route path="post/edit/:id" element={<PostEdit />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/newpost" element={<NewPost/>}/>
-      <Route path="/login" element={<LoginPage/>}/>
-      <Route path="*" element={<Navigate to="/login"/>}/>
+      <Route path="/newpost" element={<NewPost />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="*" element={<Navigate to="/login" />} />
     </Routes>
   );
 };

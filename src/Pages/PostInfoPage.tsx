@@ -3,11 +3,12 @@ import Frame from "../Components/Frame";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../Redux/types";
 import { Comment, Post } from "../Types/consts";
-import getUsername from "../Utils/getUsername";
+import getUsername from "../MIddlewares/getUsername";
 import { useNavigate, useParams } from "react-router-dom";
-import PostApi from "../Services/postApi";
+
 import UserAPI from "../Services/UserAPI";
 import CommentAPI from "../Services/CommentAPI";
+import PostAPI from "../Services/PostAPI";
 type ParamsType = {
   id: string;
 };
@@ -23,7 +24,7 @@ const PostInfoPage: FC = () => {
 
   const getPost = () => {
     if (id) {
-      PostApi.getPost(dispatch, id);
+      PostAPI.getPost(dispatch, id);
       UserAPI.getUsers(dispatch);
       CommentAPI.getComments(dispatch, id);
     }
@@ -31,10 +32,12 @@ const PostInfoPage: FC = () => {
   const generateRandomDate = (): string => {
     const randomMilliseconds = Math.floor(Math.random() * 315360000000);
     const randomDate = new Date(Date.now() - randomMilliseconds);
-    const formattedDate = `${randomDate.getDate()}/${randomDate.getMonth() + 1}/${randomDate.getFullYear()}`;
+    const formattedDate = `${randomDate.getDate()}/${
+      randomDate.getMonth() + 1
+    }/${randomDate.getFullYear()}`;
     return formattedDate;
   };
-  
+
   useEffect(getPost, [dispatch, id]);
   return (
     <Frame>
@@ -51,7 +54,6 @@ const PostInfoPage: FC = () => {
                   <h3 className="card__title">{post.title}</h3>
                   <p>{post.id}</p>
                   <div className="post__date">{generateRandomDate()}</div>
-
                 </header>
                 <main>
                   <p className="card__body">{post.body}</p>

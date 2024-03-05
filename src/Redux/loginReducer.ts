@@ -4,12 +4,13 @@ const initialState: StateType = {
   isLoading: false,
   logged: false,
   loggedUser: null,
+  checked: false,
   error: false,
 };
 
 export const loginReducer = (state = initialState, action: ActionType): StateType => {
   const cases: Record<string, StateType> = {
-    LOAD_LOGIN: { ...state, loggedUser: null, logged: false, isLoading: true, error: false },
+    ISLOADING_LOGIN: { ...state, loggedUser: null, logged: false, isLoading: true, error: false },
     POST_LOGIN: {
       ...state,
       loggedUser: action.loggedUser,
@@ -24,7 +25,7 @@ export const loginReducer = (state = initialState, action: ActionType): StateTyp
       isLoading: false,
       error: false,
     },
-    // SET_CHECKED_LOGIN: { ...state, isLoading: false, error: false, checked: true },
+    CHECKED_LOGIN: { ...state, isLoading: false, error: false, checked: true },
     LOGOUT_LOGIN: { ...state, loggedUser: null, logged: false, isLoading: false, error: false },
     ERROR_LOGIN: { ...state, loggedUser: null, logged: false, isLoading: false, error: true },
   };

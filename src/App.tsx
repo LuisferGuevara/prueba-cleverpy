@@ -1,15 +1,24 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import Header from "./Components/Header";
 
-import "./Styles/styles.scss";
 import RoutesOutlet from "./Routes/RoutesOutlet";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "./Redux/types";
+import checkSession from "./MIddlewares/checkSession";
+import "./Styles/styles.scss";
 
 const App: FC = () => {
-  // TODO: fetch post, render cards, filter?, find users and comments
+  const dispatch = useDispatch();
+  const logged = useSelector((state: RootState) => state.login.checked);
+
+  useEffect(() => {
+    checkSession(dispatch);
+  }, [dispatch]);
+
   return (
     <div className="app">
       <Header />
-      <RoutesOutlet />
+      {logged && <RoutesOutlet />}
     </div>
   );
 };

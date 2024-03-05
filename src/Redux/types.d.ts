@@ -9,6 +9,7 @@ export type StateType = {
   comments?: [] | null;
   loggedUser?: LoggedUser | null;
   logged?: boolean;
+  checked?: boolean;
 
 
 };

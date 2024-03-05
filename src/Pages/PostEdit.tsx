@@ -5,7 +5,7 @@ import { RootState } from "../Redux/types";
 
 import Frame from "../Components/Frame";
 import { Post } from "../Types/consts";
-import PostApi from "../Services/postApi";
+import PostAPI from "../Services/PostAPI";
 
 type ParamsType = {
   id: string;
@@ -19,7 +19,7 @@ const PostEdit: FC = () => {
 
   const getPost = () => {
     if (id) {
-      PostApi.getPost(dispatch, id);
+      PostAPI.getPost(dispatch, id);
     }
   };
   const sendData = (e: React.FormEvent<HTMLFormElement>) => {
@@ -34,7 +34,7 @@ const PostEdit: FC = () => {
       title: title.value,
       body: body.value,
     };
-    PostApi.editPost(dispatch, data);
+    PostAPI.editPost(dispatch, data);
   };
 
   useEffect(getPost, [dispatch, id]);
