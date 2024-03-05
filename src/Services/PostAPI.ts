@@ -1,7 +1,7 @@
 import { Dispatch } from "./types";
 
 import { config } from "./config";
-import methods from "./service.methods";
+
 import { Post } from "../Types/consts";
 import serviceMethods from "./service.methods";
 
@@ -11,7 +11,7 @@ const PostApi = {
       type: "ISLOADING_POSTS",
       payload: null,
     });
-serviceMethods
+    serviceMethods
       .get(config.endpoints.posts)
       .then((posts: []) => {
         const localPosts: [] = JSON.parse(localStorage.getItem("posts") || "[]");
@@ -33,7 +33,7 @@ serviceMethods
       type: "LOAD_POSTS",
       payload: null,
     });
-   serviceMethods
+    serviceMethods
       .get(config.endpoints.posts + `/${id}`)
       .then((post: Post) => {
         const result = [];

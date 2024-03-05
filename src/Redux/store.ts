@@ -7,7 +7,7 @@ import { commentReducer } from "./commentReducer";
 export const rootReducer = combineReducers({
   posts: postReducer,
   users: userReducer,
-  comments: commentReducer
+  comments: commentReducer,
 });
 
 export const store = createStore(rootReducer);

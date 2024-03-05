@@ -31,7 +31,7 @@ const PostInfoPage: FC = () => {
   useEffect(getPost, [dispatch, id]);
   return (
     <Frame>
-      <div>
+      <section>
         {post.posts &&
           post.posts.map((post: Post) => (
             <div key={post.id}>
@@ -60,7 +60,7 @@ const PostInfoPage: FC = () => {
             </div>
           ))}
         {post.error && <h3>Error, data not found</h3>}
-      </div>
+      </section>
       <section>
         <h3>Coments: </h3>
 
