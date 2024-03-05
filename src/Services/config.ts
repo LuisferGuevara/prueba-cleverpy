@@ -4,6 +4,12 @@ export const config = {
     posts: "posts",
     users: "users",
   },
+  admin:{
+    username: 'admin',
+    password: 'admin',
+    id: '123456789',
+    token: "abcdefg123456"
+  }
 };
 
 export const getUrl = (endpoint: keyof typeof config.endpoints) => {

@@ -19,3 +19,10 @@ export type Comment = {
   name: string;
   body: string;
 };
+
+export type LoggedUser = { 
+  username: string, 
+  token?: string, 
+  id?: number | string, 
+  password: string
+}

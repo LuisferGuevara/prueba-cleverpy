@@ -1,10 +1,11 @@
 import { FC } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "../Pages/Home";
 import PostInfoPage from "../Pages/PostInfoPage";
 import PostEdit from "../Pages/PostEdit";
 import Profile from "../Pages/Profile";
 import NewPost from "../Pages/NewPost";
+import LoginPage from "../Pages/LoginPage";
 
 const RoutesOutlet: FC = () => {
   return (
@@ -14,6 +15,8 @@ const RoutesOutlet: FC = () => {
       <Route path="post/edit/:id" element={<PostEdit />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/newpost" element={<NewPost/>}/>
+      <Route path="/login" element={<LoginPage/>}/>
+      <Route path="*" element={<Navigate to="/login"/>}/>
     </Routes>
   );
 };

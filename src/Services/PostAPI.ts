@@ -3,7 +3,7 @@ import serviceMethods from "./service.methods";
 import { Post } from "../Types/consts";
 import { config } from "./config";
 
-const PostApi = {
+const PostAPI = {
   getPosts(dispatch: Dispatch): void {
     dispatch({
       type: "ISLOADING_POSTS",
@@ -93,4 +93,4 @@ const PostApi = {
   
 };
 
-export default PostApi;
+export default PostAPI;
