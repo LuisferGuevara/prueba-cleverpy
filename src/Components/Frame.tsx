@@ -1,12 +1,12 @@
 import { FC, ReactNode } from "react"
 
-type GalleryProps = {
+type FrameProps = {
     children?: ReactNode
 }
-const Gallery: FC<GalleryProps> = ({children}) =>{
+const Frame: FC<FrameProps> = ({children}) =>{
     return(
         <main className="gallery">{children}</main>
     )
     
 }
-export default Gallery
+export default Frame

@@ -1,15 +1,18 @@
 import { FC } from "react";
-import Gallery from "./Components/Gallery";
 import Header from "./Components/Header";
-
+import Posts from "./Components/Posts";
+import "./Styles/styles.scss"
 
 const App: FC = () => {
+  // TODO: fetch post, render cards, filter?, find users and comments
   return (
-    <>
+    <div className="app">
       <Header/>
-      <Gallery/>
-      
-    </>
+
+      <Posts/>
+
+    
+    </div>
   );
 };
 
