@@ -2,8 +2,9 @@ import rootReducer from ".";
 
 export type StateType = {
   posts?: [] | null;
-  loading: boolean;
+  isLoading: boolean;
   error: boolean;
+  users?: [] | null;
 };
 
 export type ActionType = {

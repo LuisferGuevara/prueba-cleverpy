@@ -1,21 +1,19 @@
 import { ActionType, StateType } from "./types";
 
-
 const initialState: StateType = {
-    posts: [],
-    loading: false,
-    error: false
+  posts: [],
+  isLoading: false,
+  error: false,
 };
 
 export const postReducer = (state = initialState, action: ActionType): StateType => {
   const cases: Record<string, StateType> = {
-    LOAD_POSTS: { ...state, posts: [], loading: true, error: false },
-    GET_POSTS: { ...state, posts: action.payload, loading: false, error: false },
-    EDIT_POSTS: { ...state, posts: action.payload, loading: false, error: false },
-    ADD_POSTS: { ...state, posts: action.payload, loading: false, error: false },
-    ERROR_POSTS: { ...state, posts: [], loading: false, error: true }
+    ISLOADING_POSTS: { ...state, posts: [], isLoading: true, error: false },
+    GET_POSTS: { ...state, posts: action.payload, isLoading: false, error: false },
+    PUT_USERS: { ...state, posts: action.payload, isLoading: false, error: false },
+    POST_POSTS: { ...state, posts: action.payload, isLoading: false, error: false },
+    ERROR_POSTS: { ...state, posts: [], isLoading: false, error: true },
   };
 
   return cases[action.type] || state;
 };
-

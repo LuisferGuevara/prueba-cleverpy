@@ -8,7 +8,6 @@ const methods = {
     const res = await axios.get(config.baseUrl + endpoint);
     return res.data;
   },
- 
 };
 
 export default methods;

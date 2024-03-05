@@ -6,6 +6,7 @@ import PostService from "../Services/CardsService";
 import Frame from "../Components/Frame";
 import Card from "../Components/Card";
 import { Post } from "../Types/consts";
+import UserService from "../Services/UserSerice";
 
 const Home: FC = () => {
   const [randomizedPosts, setRandomizedPosts] = useState<Post[]>([]);
@@ -15,6 +16,7 @@ const Home: FC = () => {
 
   const posts = useSelector((state: RootState) => state.posts.posts);
   const postsError = useSelector((state: RootState) => state.posts.error);
+  const users = useSelector((state: RootState) => state.users.users);
 
   useEffect(() => {
     const shuffleArray = (array: Post[]) => {
@@ -40,6 +42,7 @@ const Home: FC = () => {
 
   const getData = () => {
     PostService.getPosts(dispatch);
+    UserService.getUsers(dispatch);
   };
   useEffect(getData, [dispatch]);
 
@@ -54,7 +57,7 @@ const Home: FC = () => {
         {!postsError && posts && (
           <div className="card__wrapper">
             {randomizedPosts.filter(filterPosts).map((post: Post) => (
-              <Card key={post.id} post={post} />
+              <Card key={post.id} post={post} posts={posts} users={users} />
             ))}
           </div>
         )}
