@@ -1,0 +1,36 @@
+
+$sm: 480px;
+$md: 640px;
+$lg: 768px;
+$xl: 1024px;
+$xxl: 1280px;
+
+@mixin bp-sm {
+  @media screen and (min-width: $sm) {
+    @content;
+  }
+}
+
+@mixin bp-md {
+  @media screen and (min-width: $md) {
+    @content;
+  }
+}
+
+@mixin bp-lg {
+  @media screen and (min-width: $lg) {
+    @content;
+  }
+}
+
+@mixin bp-xl {
+  @media screen and (min-width: $xl) {
+    @content;
+  }
+}
+
+@mixin bp-xxl {
+  @media screen and (min-width: $xxl) {
+    @content;
+  }
+}

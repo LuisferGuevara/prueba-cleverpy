@@ -4,6 +4,6 @@ type FrameProps = {
   children?: ReactNode;
 };
 const Frame: FC<FrameProps> = ({ children }) => {
-  return <main className="gallery">{children}</main>;
+  return <main className="frame">{children}</main>;
 };
 export default Frame;

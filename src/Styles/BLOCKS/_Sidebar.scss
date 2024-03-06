@@ -1,0 +1,25 @@
+
+.sidebar {
+    display: none;
+    background-color: #e2e8ff;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 3.5vw;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    list-style: none;
+    color: #222;
+    button {
+      background-color: transparent;
+      border: none;
+    }
+    @include bp-md {
+      display: flex;
+    }
+    i {
+      font-size: 20px;
+    }
+  }

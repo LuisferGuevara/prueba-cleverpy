@@ -1,0 +1,37 @@
+.input {
+    // border: 1px solid transparent;
+    // border-radius: 20px;
+    // font-size: 2rem;
+    // margin-bottom: 1.5rem;
+    // outline: none;
+    // padding: 1.5rem 2rem;
+    // transition: all 0.4s;
+    width: 401px;
+    height: 64px;
+    margin: 16px 0;
+    padding: 16px;
+    border-radius: 50px;
+    border: 1.5px solid silver;
+    outline: 0.1em solid brown;
+  
+    &:focus {
+      border: 1px solid blueviolet;
+      box-shadow: 0px 0px 5px 0px purple;
+    }
+  
+    &--error {
+      border: 1px solid red !important;
+      box-shadow: 0px 0px 5px 0px red !important;
+    }
+  
+    &--search {
+      display: none;
+      margin-bottom: 3rem;
+      width: 100%;
+      max-width: 300px;
+  
+      &--show {
+        display: block;
+      }
+    }
+  }

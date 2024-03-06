@@ -1,0 +1,53 @@
+.post-edit {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  
+    &__title {
+      min-height: 100px;
+      resize: none;
+      overflow-x: scroll;
+    }
+  
+    &__body {
+      min-height: 250px;
+      overflow-x: scroll;
+      resize: none;
+    }
+  }
+  .post-info {
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    font-weight: 300;
+    margin-bottom: 2%;
+    width: 345px;
+    @include bp-md {
+      width: 70%;
+    }
+    header {
+      width: 100%;
+      padding-bottom: 5px;
+      border-bottom: 1px solid;
+    }
+    &__title {
+      text-transform: capitalize;
+      margin-bottom: 1rem;
+    }
+    &__id,
+    &__date,
+    &__author-info {
+      font-weight: 200;
+    }
+    &__body {
+      margin: 6px 0;
+    }
+    footer {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
