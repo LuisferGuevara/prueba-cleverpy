@@ -2,6 +2,8 @@ import React, { FC } from "react";
 import { Post } from "../Types/consts";
 import { Link, useNavigate } from "react-router-dom";
 import getUsername from "../Middlewares/getUsername";
+import { useSelector } from "react-redux";
+import { RootState } from "../Redux/types";
 
 type PostCardType = {
   children?: React.ReactNode;
@@ -12,6 +14,9 @@ type PostCardType = {
 
 const Card: FC<PostCardType> = ({ post, users }) => {
   const navigate = useNavigate();
+  const posts = useSelector((state: RootState) => state.posts.posts);
+
+
 
   return (
     <article className="card card--post">
@@ -28,7 +33,7 @@ const Card: FC<PostCardType> = ({ post, users }) => {
         </div>
       </main>
       <footer className="card__action">
-        <div onClick={() => navigate(`/post/edit/${post.id}`)}>
+        <div onClick={() => posts && navigate(`/post/edit/${post.id}`)}>
           <i className="fa-solid fa-pen-to-square"></i>
         </div>
         <div>

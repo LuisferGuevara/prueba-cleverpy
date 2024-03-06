@@ -76,21 +76,20 @@ const PostAPI = {
       payload: posts,
     });
   },
-  createPost(dispatch: Dispatch, data: Post): void{
+  createPost(dispatch: Dispatch, data: Post): void {
     dispatch({
-      type: 'IS_LOADING_POST',
-      payload: null
-    })
-    const localStoragePosts: [] = JSON.parse(localStorage.getItem('posts') || '[]')
-    const newLocalPosts = [ ...localStoragePosts, data];
-    localStorage.setItem('posts', JSON.stringify(newLocalPosts));
-    const result = ([data] as unknown) as [];
+      type: "IS_LOADING_POST",
+      payload: null,
+    });
+    const localStoragePosts: [] = JSON.parse(localStorage.getItem("posts") || "[]");
+    const newLocalPosts = [...localStoragePosts, data];
+    localStorage.setItem("posts", JSON.stringify(newLocalPosts));
+    const result = [data] as unknown as [];
     dispatch({
-      type: 'CREATE_POST',
-      payload: result
-    })
-  }
-  
+      type: "CREATE_POST",
+      payload: result,
+    });
+  },
 };
 
 export default PostAPI;

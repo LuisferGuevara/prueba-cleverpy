@@ -5,12 +5,12 @@ import { Dispatch } from "./types.d";
 const CommentAPI = {
   getComments(dispatch: Dispatch, id: number | string): void {
     dispatch({
-      type: "IS_LOADING_COMMENTS", 
+      type: "IS_LOADING_COMMENTS",
       payload: null,
     });
     serviceMethods
       .get(config.endpoints.posts + `/${id}/comments`)
-      .then((comments: []) => { 
+      .then((comments: []) => {
         dispatch({
           type: "GET_COMMENTS",
           payload: comments,

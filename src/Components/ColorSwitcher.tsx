@@ -8,11 +8,7 @@ type ColorSwitcherProps = {
 const ColorSwitcher: FC<ColorSwitcherProps> = ({ onToggleTheme, isLightMode }) => {
   return (
     <button onClick={onToggleTheme} className="icon color-switcher">
-      {isLightMode ? (
-        <i className="fa-solid fa-sun"></i>
-      ) : (
-        <i className="fa-solid fa-moon"></i>
-      )}
+      {isLightMode ? <i className="fa-solid fa-sun"></i> : <i className="fa-solid fa-moon"></i>}
     </button>
   );
 };

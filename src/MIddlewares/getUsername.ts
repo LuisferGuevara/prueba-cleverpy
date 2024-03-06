@@ -6,7 +6,7 @@ function getUsername(users: User[] | null | undefined, post: Post): string {
   if (user) {
     return user.username;
   }
-  
+
   return "Unknown author";
 }
 

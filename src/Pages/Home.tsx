@@ -55,8 +55,8 @@ const HomePage: FC = () => {
           </div>
         {!postsError && posts && (
           <div className="card--wrapper">
-            {randomizedPosts.filter(filterPosts).map((post: Post) => (
-              <Card key={post.id} post={post} posts={posts} users={users} />
+            {randomizedPosts.filter(filterPosts).map((post: Post, index: number) => (
+              <Card key={`${post.id}-${index}`}  post={post} posts={posts} users={users} />
             ))}
           </div>
         )}

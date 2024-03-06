@@ -4,13 +4,13 @@ export type Post = {
   title: string;
   body: string;
   author?: string;
-}
+};
 export type User = {
   id: number;
   name: string;
   email: string;
   username: string;
-}
+};
 
 export type Comment = {
   id: number;
@@ -18,11 +18,11 @@ export type Comment = {
   email: string;
   name: string;
   body: string;
-}
+};
 
 export type LoggedUser = {
   username: string;
   token?: string;
   id?: number | string;
   password?: string;
-}
+};

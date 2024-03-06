@@ -2,7 +2,6 @@ import { FC } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { ROUTES } from "./routes";
 
-
 import HomePage from "../Pages/Home";
 import PostInfoPage from "../Pages/PostInfoPage";
 import PostEdit from "../Pages/PostEdit";

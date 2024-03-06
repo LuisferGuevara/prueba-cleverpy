@@ -12,8 +12,8 @@ export const postReducer = (state = INITIAL_STATE, action: ActionType): StateTyp
       return { ...state, posts: [], isLoading: true, error: false };
     case "GET_POSTS":
       return { ...state, posts: action.payload, isLoading: false, error: false };
-    case "PUT_POSTS": 
-    case "CREATE_POSTS": 
+    case "PUT_POSTS":
+    case "CREATE_POSTS":
       return { ...state, posts: action.payload, isLoading: false, error: false };
     case "ERROR_POSTS":
       return { ...state, posts: [], isLoading: false, error: true };

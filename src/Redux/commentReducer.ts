@@ -18,4 +18,3 @@ export const commentReducer = (state = INITIAL_STATE, action: ActionType): State
       return state;
   }
 };
-

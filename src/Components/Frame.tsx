@@ -5,6 +5,6 @@ type FrameProps = {
   children?: ReactNode;
 };
 const Frame: FC<FrameProps> = ({ children, center }) => {
-  return <main className={`frame ${center ? 'frame--center' : ''}`}>{children}</main>;
+  return <main className={`frame ${center ? "frame--center" : ""}`}>{children}</main>;
 };
 export default Frame;

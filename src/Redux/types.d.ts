@@ -10,8 +10,6 @@ export type StateType = {
   loggedUser?: LoggedUser | null;
   logged?: boolean;
   checked?: boolean;
-
-
 };
 
 export type ActionType = {

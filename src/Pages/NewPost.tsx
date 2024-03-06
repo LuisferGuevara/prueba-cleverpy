@@ -6,7 +6,6 @@ import PostAPI from "../Services/PostAPI";
 import Navbar from "../Components/Navbar";
 import AsideBar from "../Components/AsideBar";
 
-
 const NewPost: FC = () => {
   const dispatch = useDispatch();
   const [isPostCreated, setIsPostCreated] = useState(false);

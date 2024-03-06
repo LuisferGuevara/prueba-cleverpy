@@ -1,11 +1,11 @@
-import { LoggedUser } from "../Types/consts.d"; 
+import { LoggedUser } from "../Types/consts.d";
 import { config } from "./config";
 import { Dispatch } from "./types";
 
 const LoginAPI = {
   login(dispatch: Dispatch, user: LoggedUser): void {
     dispatch({
-      type: "IS_LOADING_LOGIN", 
+      type: "IS_LOADING_LOGIN",
       loggedUser: null,
     });
 
@@ -17,7 +17,6 @@ const LoginAPI = {
           loggedUser: user,
         });
       }, 1000);
-
     } else {
       dispatch({
         type: "ERROR_LOGIN",

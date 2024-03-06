@@ -84,7 +84,7 @@ const PostInfoPage: FC = () => {
           <h3 className="comments__title">Comments: </h3>
           {commentsState.comments &&
             commentsState.comments.map((comment: Comment) => (
-              <article key={comment.id} className="comments comments__card ">
+              <article key={`${comment.id}-${comment.name}`} className="comments comments__card ">
                 <header className="comments__header">
                   <h4 className="comments__author">Written by: {comment.email}</h4>
                   <h4 className="comments__name">{comment.name}</h4>

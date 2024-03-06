@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { Post, User } from "../Types/consts.d"; 
+import { Post, User } from "../Types/consts.d";
 
 import { config } from "./config";
 
@@ -30,4 +30,3 @@ const serviceMethods = {
 };
 
 export default serviceMethods;
-
