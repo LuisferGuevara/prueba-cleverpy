@@ -1,5 +1,5 @@
 .card {
-  border: 1.7px solid #ccc;
+  border: 1.7px solid $-c-gray-20;
   border-radius: $-s-md;
   padding: $-s-md $-s-md;
   height: 100%;
@@ -13,7 +13,7 @@
   &--post {
 
     &:hover {
-      background-color: #444bd3;
+      background-color: $-c-blue-1;
       color: whitesmoke;
     
     }
@@ -39,13 +39,13 @@
   &__title {
     font-weight: 500;
     text-decoration: none;
-    color: #444bd3;
+    color:$-c-blue-1;
     width: 80%;
     text-transform: capitalize;
     text-align: left;
   }
   &--link {
-    background-color: #edd3ff;
+    background-color: $-c-pink;
     height: fit-content;
     display: flex;
     align-self: baseline;

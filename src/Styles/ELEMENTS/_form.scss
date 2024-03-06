@@ -1,5 +1,5 @@
 .form {
-  background-color: #fee5e1;
+  background-color: $-c-form;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -28,7 +28,7 @@
     text-align: center;
   }
   &--login {
-    background-color: #5b5fc6;
+    background-color: $-c-login;
     height: 300px;
     input{
       height: 40px;

@@ -1,5 +1,5 @@
 .header {
-  background-color: #fcfcfc;
+  background-color: $-c-body;
   width: 100%;
   top: 0;
   left: 0;
@@ -15,13 +15,13 @@
     h1 {
       font-size: 2.4em;
       position: relative;
-      color: #585fd8;
+      color: $-c-blue-3;
     }
   }
   &--cool {
     width: 100%;
     height: 16px;
-    background-color: #fec4bb;
+    background-color: $-c-header-cool;
     position: absolute;
     bottom: 2px;
     z-index: 0;
@@ -36,6 +36,7 @@
     font-size: 1.4rem;
     background-color: transparent;
     border: none;
+    color:$-c-text;
     @include bp-md {
       display: none;
     }

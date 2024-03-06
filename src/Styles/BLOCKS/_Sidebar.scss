@@ -1,7 +1,7 @@
 
 .sidebar {
   display: none;
-  background-color: #e2e8ff;
+  background-color: $-c-navigation;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
@@ -21,6 +21,6 @@
   i {
     font-size: 20px;
     cursor: pointer;
-    color:#332f2f;
+    color:$-c-icon;
   }
 }

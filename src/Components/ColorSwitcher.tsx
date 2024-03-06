@@ -6,6 +6,7 @@ type ColorSwitcherProps = {
 };
 
 const ColorSwitcher: FC<ColorSwitcherProps> = ({ onToggleTheme, isLightMode }) => {
+  
   return (
     <button onClick={onToggleTheme} className="icon color-switcher">
       {isLightMode ? (

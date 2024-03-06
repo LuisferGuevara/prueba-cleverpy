@@ -7,7 +7,7 @@
   padding: 1rem;
   transition: 0.2s;
   &--success {
-    background-color: #444bd3;
+    background-color:$-c-blue-1;
     color: white;
     text-transform: uppercase;
     font-weight: bolder;
@@ -24,7 +24,7 @@
     align-items: center;
   }
   &--login {
-    background-color: #edd3ff;
+    background-color: $-c-pink;
     text-transform: uppercase;
     font-weight: bolder;
     letter-spacing: 0.5rem;

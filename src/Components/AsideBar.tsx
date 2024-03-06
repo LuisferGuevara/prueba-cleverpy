@@ -28,8 +28,9 @@ export const AsideBar: FC<AsideBarProps> = ({ showSearch, setShowSearch }) => {
   const toggleTheme = () => {
     setIsLightMode(!isLightMode);
     if (isLightMode) {
-      document.body.classList.add("dark-theme");
-      document.body.classList.remove("dark-theme");
+      const body$$ = document.querySelector('body');
+      body$$?.toggleAttribute('data-dark-mode');
+
     }
   };
   return (

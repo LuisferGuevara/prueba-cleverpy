@@ -7,9 +7,10 @@ const Header: FC = () => {
   const toggleTheme = () => {
     setIsLightMode(!isLightMode);
     if (isLightMode) {
-      document.body.classList.add("dark-theme");
+    
+      const body$$ = document.querySelector('body');
+      body$$?.toggleAttribute('data-dark-mode');
 
-      document.body.classList.remove("dark-theme");
     }
   };
 

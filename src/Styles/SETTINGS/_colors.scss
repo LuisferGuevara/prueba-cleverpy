@@ -1,0 +1,45 @@
+@mixin colors {
+  --c-body: var(--c-white);
+  --c-text: #101010;
+  --c-navigation: #e2e8ff;
+  --c-blue-1: #444bd3;
+  --c-blue-2: rgb(153, 202, 244);
+  --c-blue-3: #585fd8;
+  --c-header-cool: #fec4bb;
+  --c-form: #fee5e1;
+  --c-form-input: #fb9d98;
+  --c-gray-20: #ccc;
+  --c-white: #fcfcfc;
+  --c-login: #5b5fc6;
+  --c-pink: #edd3ff;
+  --c-icon: #332f2f;
+
+  &[data-dark-mode] {
+    --c-body: #222;
+    --c-text: #e9e9e9;
+    --c-blue-2: #bdaeab96;
+    --c-blue-3: #e2b74a;
+
+    --c-header-cool: #793094;
+    --c-navigation: #9788ab;
+    --c-form: #958c8a9c;
+    --c-form-input: #869cec;
+  }
+}
+
+$-c-body: var(--c-body);
+$-c-text: var(--c-text);
+$-c-navigation: var(--c-navigation);
+$-c-header-cool: var(--c-header-cool);
+$-c-gray-20: var(--c-gray-20);
+$-c-blue-1: var(--c-blue-1);
+$-c-blue-2: var(--c-blue-2);
+$-c-blue-3: var(--c-blue-3);
+$-c-form: var(--c-form);
+$-c-form-input: var(--c-form-input);
+$-c-white: var(--c-white);
+$-c-black: var(--c-black);
+$-c-yellow: var(--c-yellow);
+$-c-login: var(--c-login);
+$-c-pink: var(--c-pink);
+$-c-icon: var(--c-icon);

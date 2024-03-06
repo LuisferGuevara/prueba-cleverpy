@@ -9,10 +9,6 @@ import UserService from "../Services/UserAPI";
 import PostAPI from "../Services/PostAPI";
 import { Post } from "../Types/consts";
 import { shuffleAPI } from "../Utils/shuffleApi";
-import ScrollButton from "../Components/ScrollButton";
-
-
-
 
 const HomePage: FC = () => {
   const dispatch = useDispatch();
@@ -68,7 +64,7 @@ const HomePage: FC = () => {
       </Frame>
       <Navbar showSearch={showSearch} setShowSearch={setShowSearch}/>
       <AsideBar showSearch={showSearch} setShowSearch={setShowSearch}/>
-      <ScrollButton/>
+
  
     </>
   );

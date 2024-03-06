@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #e2e8ff;
+  background-color: $-c-navigation;
   height: 5rem;
   position: fixed;
   bottom: 0;
@@ -13,6 +13,7 @@
   i {
     font-size: 1.4em;
     cursor: pointer;
+    color:$-c-icon;
   }
   @include bp-md {
     display: none;

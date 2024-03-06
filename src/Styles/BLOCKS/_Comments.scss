@@ -15,7 +15,7 @@
     margin-bottom: 1em;
   }
   &__card {
-    background-color: rgb(153, 202, 244);
+    background-color: $-c-blue-2;
     border-radius: 20px;
     margin: $-s-xxs;
     font-size: 1.5rem;
@@ -38,6 +38,7 @@
     width: 100%;
     text-align: left;
     font-weight: 300;
+    color: $-c-text;
     &::first-letter {
       text-transform: capitalize;
     }
