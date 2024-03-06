@@ -43,35 +43,39 @@ const PostInfoPage: FC = () => {
   return (
     <>
       <Frame>
-        <section className="post-info__wrapper">
+        <section className="post--info__wrapper">
           {postState.posts &&
             postState.posts.map((post: Post) => (
-              <div key={post.id} className="post-info">
-                <article className="post-info__post card">
-                  <header>
-                    <h3 className="post-info__title">{post.title}</h3>
-                    <p className="post-info__id"><span>Post: #{post.id}</span></p>
-                    <div className="post-info__date">Date: <span>{generateRandomDate()}</span></div>
-                    <div className="post-info__author-info ">
-                      <p className="post-info__author">
-                        Post Author: <span>{getUsername(usersState, post)}</span> 
-                      </p>
-                      <p className="post-info__user-id">Author ID: {post.userId}</p>
-                    </div>
-                  </header>
-                  <main>
-                    <p className="post-info__body">{post.body}</p>
-                  </main>
-                  <footer className="post-info__action">
-                    <div className="post-info__btn-action btn-action">
-                      <i
-                        className="fa-solid fa-pen-to-square"
-                        onClick={() => navigate(`/post/edit/${post.id}`)}
-                      ></i>
-                    </div>
-                  </footer>
-                </article>
-              </div>
+              <article className="post--info__post card">
+                <header className="post--info__header">
+                  <h3 className="post--info__title">{post.title}</h3>
+                  <p className="post--info__id">
+                    <span>Post: #{post.id}</span>
+                  </p>
+                  <div className="post--info__date">
+                    Date: <span>{generateRandomDate()}</span>
+                  </div>
+                  <div className="post--info__author-info ">
+                    <p>
+                      Post Author: <span>{getUsername(usersState, post)}</span>
+                    </p>
+                    <p>
+                      Author ID: <span>{post.userId}</span>
+                    </p>
+                  </div>
+                </header>
+                <main>
+                  <p className="post--info__body">{post.body}</p>
+                </main>
+                <footer className="post--info__action">
+                  <div className="post--info__btn-action btn-action">
+                    <i
+                      className="fa-solid fa-pen-to-square"
+                      onClick={() => navigate(`/post/edit/${post.id}`)}
+                    ></i>
+                  </div>
+                </footer>
+              </article>
             ))}
           {postState.error && <h3>Error, data not found</h3>}
         </section>
@@ -81,17 +85,17 @@ const PostInfoPage: FC = () => {
           {commentsState.comments &&
             commentsState.comments.map((comment: Comment) => (
               <article key={comment.id} className="comments comments__card ">
-                <header>
+                <header className="comments__header">
                   <h4 className="comments__author">Written by: {comment.email}</h4>
                   <h4 className="comments__name">{comment.name}</h4>
                 </header>
-                <main>
-                  <p className="comments__body">{comment.body}</p>
+                <main className="comments__body">
+                  <p >{comment.body}</p>
                 </main>
-                <footer>
-                <i className="fa-solid fa-thumbs-up"></i>
-                <i className="fa-solid fa-reply"></i>
-                <i className="fa-solid fa-paper-plane"></i>
+                <footer className="comments__action">
+                  <i className="fa-solid fa-thumbs-up"></i>
+                  <i className="fa-solid fa-reply"></i>
+                  <i className="fa-solid fa-paper-plane"></i>
                 </footer>
               </article>
             ))}

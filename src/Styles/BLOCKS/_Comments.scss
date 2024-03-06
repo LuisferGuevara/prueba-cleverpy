@@ -1,43 +1,54 @@
 .comments {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 6px;
-    width: 345px;
-    @include bp-md {
-      width: 80%;
-    }
-    &__title {
-      text-align: center;
-      width: 100%;
-      border-bottom: 1px solid;
-      padding-bottom: 8px;
-      margin-bottom: 1em;
-    }
-    &__card {
-      background-color: rgb(153, 202, 244);
-      border-radius: 20px;
-      margin: 6px;
-      font-size: 12px;
-      padding: 8px 10px;
-    }
-  
-    header {
-      width: 100%;
-      font-weight: 200;
-      h4 {
-        font-weight: 300;
-        text-transform: lowercase;
-        margin-bottom: 6px;
-        &::first-letter {
-          text-transform: capitalize;
-        }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: $-s-xs;
+  width: 95%;
+  @include bp-md {
+    width: 85%;
+  }
+  &__title {
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid;
+    padding-bottom: 8px;
+    margin-bottom: 1em;
+  }
+  &__card {
+    background-color: rgb(153, 202, 244);
+    border-radius: 20px;
+    margin: $-s-xxs;
+    font-size: 1.5rem;
+    padding: $-s-xxs $-s-xs;
+  }
+
+  &__header {
+    width: 100%;
+
+    h4 {
+      font-weight: 400;
+      text-transform: lowercase;
+      margin-bottom: 6px;
+      &::first-letter {
+        text-transform: capitalize;
       }
     }
-    footer {
-      width: 50%;
-      display: flex;
-      align-self: flex-end;
-      justify-content: space-evenly;
+  }
+  &__body {
+    width: 100%;
+    text-align: left;
+    font-weight: 300;
+    &::first-letter {
+      text-transform: capitalize;
     }
   }
+  &__action {
+    width: 100%;
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    i {
+      margin: 0 $-s-xxs;
+    }
+  }
+}

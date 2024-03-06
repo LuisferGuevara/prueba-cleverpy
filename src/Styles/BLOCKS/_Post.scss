@@ -1,53 +1,60 @@
-.post-edit {
+.post--info {
+  &__wrapper {
     display: flex;
     flex-direction: column;
-    width: 100%;
-  
-    &__title {
-      min-height: 100px;
-      resize: none;
-      overflow-x: scroll;
-    }
-  
-    &__body {
-      min-height: 250px;
-      overflow-x: scroll;
-      resize: none;
-    }
-  }
-  .post-info {
-    &__wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+    align-items: center;
     font-weight: 300;
     margin-bottom: 2%;
-    width: 345px;
+    width: 90%;
     @include bp-md {
       width: 70%;
     }
-    header {
-      width: 100%;
-      padding-bottom: 5px;
-      border-bottom: 1px solid;
-    }
-    &__title {
-      text-transform: capitalize;
-      margin-bottom: 1rem;
-    }
-    &__id,
-    &__date,
-    &__author-info {
-      font-weight: 200;
-    }
-    &__body {
-      margin: 6px 0;
-    }
-    footer {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
+  }
+  &__header {
+    width: 100%;
+    padding-bottom: $-s-xs;
+    border-bottom: 1px solid;
+  }
+  &__title {
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+  }
+  &__id,
+  &__date,
+  &__author-info {
+    font-weight: 200;
+    span{
+      font-style: italic;
     }
   }
+  &__body {
+    margin: 6px 0;
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+  &__action {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+.post-edit {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__title {
+    min-height: 100px;
+    resize: none;
+    overflow-x: scroll;
+  }
+
+  &__body {
+    min-height: 250px;
+    overflow-x: scroll;
+    resize: none;
+  }
+}
