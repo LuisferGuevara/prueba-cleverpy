@@ -1,18 +1,25 @@
 import { FC, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../Redux/types";
+import AsideBar from "../Components/AsideBar";
 import Frame from "../Components/Frame";
 import Card from "../Components/Card";
+import Navbar from "../Components/Navbar";
 import UserService from "../Services/UserAPI";
 import PostAPI from "../Services/PostAPI";
 import { Post } from "../Types/consts";
 import { shuffleAPI } from "../Utils/shuffleApi";
 
+
+
+
 const HomePage: FC = () => {
+  const dispatch = useDispatch();
+
   const [randomizedPosts, setRandomizedPosts] = useState<Post[]>([]);
   const [searchText, setSearchText] = useState<string>("");
+  const [showSearch, setShowSearch] = useState<boolean>(false);
 
-  const dispatch = useDispatch();
   const posts = useSelector((state: RootState) => state.posts.posts);
   const postsError = useSelector((state: RootState) => state.posts.error);
   const users = useSelector((state: RootState) => state.users.users);
@@ -39,22 +46,26 @@ const HomePage: FC = () => {
   useEffect(getData, [dispatch]);
 
   return (
-    <Frame>
-      <input
-        className="input input--search"
-        placeholder="Search"
-        onChange={(e) => setSearchText(e.target.value)}
-      />
-      <p className="total-posts">Total:{posts?.length}</p>
-      {!postsError && posts && (
-        <div className="card-wrapper">
-          {randomizedPosts.filter(filterPosts).map((post: Post) => (
-            <Card key={post.id} post={post} posts={posts} users={users} />
-          ))}
-        </div>
-      )}
-      {postsError && <h3>Error, data not found</h3>}
-    </Frame>
+    <>
+      <Frame>
+        <input
+          className={`input input--search ${showSearch ? 'input--search--show' : ''}`}
+          placeholder="Search"
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        {!postsError && posts && (
+          <div className="card--wrapper">
+            {randomizedPosts.filter(filterPosts).map((post: Post) => (
+              <Card key={post.id} post={post} posts={posts} users={users} />
+            ))}
+          </div>
+        )}
+        {postsError && <h3>Error, data not found</h3>}
+      </Frame>
+      <Navbar showSearch={showSearch} setShowSearch={setShowSearch}/>
+      <AsideBar showSearch={showSearch} setShowSearch={setShowSearch}/>
+ 
+    </>
   );
 };
 

@@ -1,42 +1,26 @@
-import { FC } from "react";
-import BurgerMenu from "./BurgerMenu";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../Redux/types";
-import LoginAPI from "../Services/LoginApi";
-import { ROUTES } from "../Routes/routes";
+import { FC, useState } from "react";
+import ColorSwitcher from "./ColorSwitcher";
 
 const Header: FC = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const [isLightMode, setIsLightMode] = useState(true);
 
-  const logged = useSelector((state: RootState) => state.login.logged);
-  const logoutAction = () => {
-    LoginAPI.logout(dispatch);
-    navigate(ROUTES.LOGIN); 
+  const toggleTheme = () => {
+    setIsLightMode(!isLightMode);
+    if (isLightMode) {
+      document.body.classList.add("dark-theme");
+
+      document.body.classList.remove("dark-theme");
+    }
   };
 
   return (
     <header className="header">
       <h1>My Cool Posts</h1>
-      <div className="header__toggler">
-        <button>Cambio Color</button>
+      <div className="header__icons">
+        <div className="header__toggler icon-show ">
+          <ColorSwitcher onToggleTheme={toggleTheme} isLightMode={isLightMode} />
+        </div>
       </div>
-      {logged && (
-        <>
-          <div className="header__toggler">
-            <i className="fa-solid fa-user" onClick={() => navigate("/profile")}></i>
-          </div>
-          <div className="header__toggler">
-            <i className="fa-solid fa-square-plus" onClick={() => navigate("/newpost")}></i>
-          </div>
-          <BurgerMenu />
-          <button className="icon icon--logout" onClick={logoutAction}>
-            {" "}
-            <i className="fa-solid fa-right-from-bracket"></i>
-          </button>
-        </>
-      )}
     </header>
   );
 };
