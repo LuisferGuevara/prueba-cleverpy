@@ -6,7 +6,6 @@ import Header from "./Components/Header";
 import RoutesOutlet from "./Routes/RoutesOutlet";
 import "./Styles/styles.scss";
 
-
 const App: FC = () => {
   const dispatch = useDispatch();
   const logged = useSelector((state: RootState) => state.login.checked);
@@ -18,14 +17,7 @@ const App: FC = () => {
   return (
     <div className="app">
       <Header />
-      {logged && (
-        <>
-          <RoutesOutlet />
-          {/* <Navbar showSearch={showSearch} setShowSearch={setShowSearch} />
-          <AsideBar showSearch={showSearch} setShowSearch={setShowSearch} />*/}
-        </> 
-      )}
-  
+      {logged && <RoutesOutlet />}
     </div>
   );
 };

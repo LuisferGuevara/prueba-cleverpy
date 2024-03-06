@@ -5,11 +5,10 @@ const Header: FC = () => {
   const [isLightMode, setIsLightMode] = useState(true);
 
   const toggleTheme = () => {
-    setIsLightMode(!isLightMode);
-    if (isLightMode) {
-      const body$$ = document.querySelector("body");
-      body$$?.toggleAttribute("data-dark-mode");
-    }
+    const newMode = !isLightMode;
+    setIsLightMode(newMode);
+    const body$$ = document.querySelector("body");
+    body$$?.toggleAttribute("data-dark-mode", newMode);
   };
 
   return (

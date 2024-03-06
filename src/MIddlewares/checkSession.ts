@@ -12,5 +12,4 @@ function verifySession(dispatch: Dispatch): void {
         console.error('Error verifying session:', error);
     }
 }
-
 export default verifySession;

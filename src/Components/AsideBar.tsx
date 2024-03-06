@@ -26,17 +26,15 @@ export const AsideBar: FC<AsideBarProps> = ({ showSearch, setShowSearch }) => {
   };
 
   const toggleTheme = () => {
-    setIsLightMode(!isLightMode);
-    if (isLightMode) {
-      const body$$ = document.querySelector('body');
-      body$$?.toggleAttribute('data-dark-mode');
-
-    }
+    setIsLightMode(prevIsLightMode => !prevIsLightMode);
+    const body$$ = document.querySelector('body');
+    body$$?.toggleAttribute('data-dark-mode');
   };
+
   return (
     <ul className="sidebar">
       <li>
-      < i className="fa-solid fa-house" onClick={() => navigate(ROUTES.HOME)} />
+        <i className="fa-solid fa-house" onClick={() => navigate(ROUTES.HOME)} />
       </li>
       <li>
         <i className="fa-solid fa-magnifying-glass" onClick={handleSearchInput} />
