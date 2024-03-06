@@ -18,7 +18,7 @@ const GoBackButton: FC = () => {
   return (
     <>
       {showGoBackButton && (
-        <button onClick={() => navigate(ROUTES.HOME)}>
+        <button className="bt bt-back" onClick={() => navigate(ROUTES.HOME)}>
           <i className="fa-solid fa-chevron-left"></i>
         </button>
       )}

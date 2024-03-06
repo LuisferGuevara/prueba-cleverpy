@@ -31,8 +31,8 @@ const LoginPage: FC = () => {
 
   return (
     <Frame>
-      <h1>MY COOL POST</h1>
-      <form className="login-form" onSubmit={onSubmit}>
+
+      <form className="login-form form"  onSubmit={onSubmit}>
         <p> Please Log in to Dashboard</p>
         {loginError && <div className="login-form__error">User not found!</div>}
         <input placeholder="Username" {...register("username", { required: true })} className="login-form__input" />

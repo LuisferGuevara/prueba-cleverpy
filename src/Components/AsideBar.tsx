@@ -35,6 +35,9 @@ export const AsideBar: FC<AsideBarProps> = ({ showSearch, setShowSearch }) => {
   return (
     <ul className="sidebar">
       <li>
+      < i className="fa-solid fa-house" onClick={() => navigate(ROUTES.HOME)} />
+      </li>
+      <li>
         <i className="fa-solid fa-magnifying-glass" onClick={handleSearchInput} />
       </li>
       <li>

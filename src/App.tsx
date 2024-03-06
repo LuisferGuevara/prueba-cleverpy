@@ -4,8 +4,8 @@ import { RootState } from "./Redux/types";
 import verifySession from "./Middlewares/checkSession";
 import Header from "./Components/Header";
 import RoutesOutlet from "./Routes/RoutesOutlet";
-import GoBackButton from "./Components/GoBackButton";
 import "./Styles/styles.scss";
+
 
 const App: FC = () => {
   const dispatch = useDispatch();
@@ -18,8 +18,14 @@ const App: FC = () => {
   return (
     <div className="app">
       <Header />
-      {logged && <RoutesOutlet />}
-      <GoBackButton />
+      {logged && (
+        <>
+          <RoutesOutlet />
+          {/* <Navbar showSearch={showSearch} setShowSearch={setShowSearch} />
+          <AsideBar showSearch={showSearch} setShowSearch={setShowSearch} />*/}
+        </> 
+      )}
+  
     </div>
   );
 };

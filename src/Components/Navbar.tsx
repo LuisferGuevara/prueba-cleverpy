@@ -27,6 +27,9 @@ const Navbar: FC<NavbarProps> = ({showSearch, setShowSearch }) => {
   return (
     <nav className="navbar">
       <div>
+      < i className="fa-solid fa-house" onClick={() => navigate(ROUTES.HOME)} />
+      </div>
+      <div>
         <i className="fa-solid fa-magnifying-glass" onClick={handleSearchInput}></i>
       </div>
       <div>

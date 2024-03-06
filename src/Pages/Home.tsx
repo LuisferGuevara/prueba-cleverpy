@@ -1,14 +1,15 @@
 import { FC, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../Redux/types";
-import AsideBar from "../Components/AsideBar";
 import Frame from "../Components/Frame";
 import Card from "../Components/Card";
+import AsideBar from "../Components/AsideBar";
 import Navbar from "../Components/Navbar";
 import UserService from "../Services/UserAPI";
 import PostAPI from "../Services/PostAPI";
 import { Post } from "../Types/consts";
 import { shuffleAPI } from "../Utils/shuffleApi";
+import ScrollButton from "../Components/ScrollButton";
 
 
 
@@ -64,6 +65,7 @@ const HomePage: FC = () => {
       </Frame>
       <Navbar showSearch={showSearch} setShowSearch={setShowSearch}/>
       <AsideBar showSearch={showSearch} setShowSearch={setShowSearch}/>
+      <ScrollButton/>
  
     </>
   );

@@ -15,7 +15,10 @@ const Header: FC = () => {
 
   return (
     <header className="header">
-      <h1>My Cool Posts</h1>
+      <div className="header--box">
+        <div className="header--cool"></div>
+        <h1>My Cool Posts</h1>
+      </div>
       <div className="header__icons">
         <div className="header__toggler icon-show ">
           <ColorSwitcher onToggleTheme={toggleTheme} isLightMode={isLightMode} />
