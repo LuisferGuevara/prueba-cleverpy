@@ -30,7 +30,7 @@ const LoginPage: FC = () => {
   }
 
   return (
-    <Frame>
+    <Frame center>
 
       <form className="login-form form"  onSubmit={onSubmit}>
         <p> Please Log in to Dashboard</p>

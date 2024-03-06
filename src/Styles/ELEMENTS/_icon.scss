@@ -1,15 +1,24 @@
 .fa {
     &-plus {
-      font-size: 1.6rem;
+      font-size:2rem;
       color: #444bd3;
     }
     &-x,
     &-pen-to-square {
       cursor: pointer;
-      font-size: 1.1rem;
+      font-size: 2rem;
       &:hover {
         border-bottom: 1px solid #e3f8fb;
         padding-bottom: 4px;
       }
     }
+    &-moon,&-sun{
+      cursor: pointer;
+      font-size: 3rem;
+      padding: 2rem;
+    }
+  }
+  .icon{
+    cursor: pointer;
+    font-size: 2rem;
   }

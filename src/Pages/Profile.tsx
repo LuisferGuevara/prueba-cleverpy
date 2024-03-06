@@ -12,9 +12,9 @@ const Profile: FC = () => {
 
   return (
     <>
-      <Frame>
+      <Frame center>
         <section className="profile--wrapper">
-          <article className="profile card">
+          <article className="profile ">
             <figure className="profile__image">
               <img src={icon} alt="Profile Icon" className="profile__icon" />
             </figure>

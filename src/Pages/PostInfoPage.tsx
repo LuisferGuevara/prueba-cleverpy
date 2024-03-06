@@ -56,7 +56,7 @@ const PostInfoPage: FC = () => {
                       <p className="post-info__author">
                         Post Author: <span>{getUsername(usersState, post)}</span> 
                       </p>
-                      <p className="post-info__user-id">User ID: {post.userId}</p>
+                      <p className="post-info__user-id">Author ID: {post.userId}</p>
                     </div>
                   </header>
                   <main>

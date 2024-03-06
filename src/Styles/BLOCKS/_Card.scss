@@ -1,77 +1,82 @@
 .card {
-    border: 1.7px solid #ccc;
-    border-radius: 20px;
-    padding: 1.4rem 1.8rem;
-    min-height: 340px;
-    height: 100%;
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.2s ease;
-    line-height: 1.4em;
-    &--post {
-      min-height: 340px;
-      &:hover {
-        background-color: #444bd3;
-        color: whitesmoke;
-      }
-      &--post {
-        margin: 1rem 0;
-      }
-    }
-  
-    &--wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      justify-items: center;
-      gap: 1.4rem;
-      width: 100%;
-    }
-    &--header {
-      display: flex;
-      justify-content: space-between;
-    }
-    &__title {
-      font-weight: 500;
-      text-decoration: none;
-      transition: 0.5s;
-      width: 80%;
-      text-transform: capitalize;
-      text-align: left;
-    }
-    &--link {
-      background-color: #edd3ff;
-      height: fit-content;
-      padding: 6px;
-      border-radius: 12px;
-      &:hover {
-        transform: scale(1.2);
-        box-shadow: 1px 1px 1px;
-      }
-    }
-  
-    &__body {
-      padding: 0.5rem 0;
-      text-align: justify;
-      line-height: 1.2em;
-      &::first-letter {
-        text-transform: capitalize;
-      }
-    }
-  
-    &__author {
-      width: 100%;
-      font-weight: 200;
-      font-style: italic;
-      border-bottom: 1px solid;
-      width: fit-content;
-    }
-    &__action {
-      display: flex;
-      align-self: flex-end;
-      justify-content: space-between;
-      width: 100%;
+  border: 1.7px solid #ccc;
+  border-radius: $-s-md;
+  padding: $-s-md $-s-md;
+  height: 100%;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+
+  &--post {
+
+    &:hover {
+      background-color: #444bd3;
+      color: whitesmoke;
     }
   }
+
+  &--wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $-s-lg;
+    justify-items: center;
+    width: 100%;
+    max-width: 1300px;
+
+  }
+  &--header {
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__title {
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.5s;
+    width: 80%;
+    text-transform: capitalize;
+    text-align: left;
+  }
+  &--link {
+    background-color: #edd3ff;
+    height: fit-content;
+    display: flex;
+    align-self: baseline;
+    text-decoration: none;
+    padding: 6px;
+    border-radius: 12px;
+    &:hover {
+      transform: scale(1.2);
+      box-shadow: 1px 1px 1px;
+    }
+  }
+
+  &__body {
+    padding: 0.5rem 0;
+    text-align: justify;
+    line-height: 1.2em;
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  &__author {
+    width: 100%;
+    font-weight: 200;
+    font-style: italic;
+    border-bottom: 1px solid;
+    width: fit-content;
+  }
+  &__action { 
+    display: flex;
+    align-self: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: $-s-xxs;
+  }
+}

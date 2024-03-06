@@ -1,11 +1,20 @@
-
 .frame {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-    background-color: #222;
-    padding: 15vh 0 7vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: $-s-xxxl $-s-sm;
+
+  width: 100%;
+  &--center {
+    justify-content: center;
   }
-  
+
+  @include bp-md {
+    padding: $-s-xxxl $-s-xxl;
+  }
+
+  @include bp-lg {
+    padding: $-s-xxxl $-s-xxl;
+  }
+}
