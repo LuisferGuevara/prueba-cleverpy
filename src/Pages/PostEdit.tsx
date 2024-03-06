@@ -44,23 +44,23 @@ const PostEdit: FC = () => {
     <>
     
     
-    <Frame>
+    <Frame center>
       {postState.posts &&
         postState.posts.map((post: Post) => (
-          <form key={post.id} className="form post-edit" onSubmit={(e) => sendData(e)}>
+          <form key={post.id} className="form post--edit" onSubmit={(e) => sendData(e)}>
             <h4>Edit this post</h4>
-            <label className="post-edit__label">Id:
-            <input name="id" className="post-edit__input" defaultValue={post.id.toString()} />
+            <label className="post--edit__label"> Post Id:
+            <input name="id" className="post--edit__input" defaultValue={post.id.toString()} />
             </label>
-            <label className="post-edit__label">User ID: 
-            <input name="userId" className="post-edit__input" defaultValue={post.userId.toString()} />
+            <label className="post--edit__label">User ID: 
+            <input name="userId" className="post--edit__input" defaultValue={post.userId.toString()} />
             </label>
-            <label className="post-edit__label">Title:
+            <label className="post--edit__label">Title:
             </label>
-            <textarea name="title" className="post-edit__textarea" defaultValue={post.title}></textarea>
-            <label className="post-edit__label">Body:</label>
-            <textarea name="body" className="post-edit__textarea" defaultValue={post.body}></textarea>
-            <button className="post-edit__button">- Save -</button>
+            <textarea name="title" className="post--edit__textarea" defaultValue={post.title}></textarea>
+            <label className="post--edit__label">Body:</label>
+            <textarea name="body" className="post--edit__textarea textarea--body" defaultValue={post.body}></textarea>
+            <button className="button btn--success">- Save -</button>
           </form>
         ))}
       {postState.error && <h3>Error, post not found</h3>}

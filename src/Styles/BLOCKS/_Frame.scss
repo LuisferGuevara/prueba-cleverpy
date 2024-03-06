@@ -4,6 +4,7 @@
   align-items: center;
   min-height: 100vh;
   padding: $-s-xxxl $-s-sm;
+  max-width: 1300px;
 
   width: 100%;
   &--center {
@@ -16,5 +17,6 @@
 
   @include bp-lg {
     padding: $-s-xxxl $-s-xxl;
+    margin: 0 auto;
   }
 }

@@ -23,7 +23,7 @@
   &__date,
   &__author-info {
     font-weight: 200;
-    span{
+    span {
       font-style: italic;
     }
   }
@@ -40,8 +40,7 @@
     justify-content: flex-end;
   }
 }
-
-.post-edit {
+.post--edit {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -51,10 +50,27 @@
     resize: none;
     overflow-x: scroll;
   }
+  &__label {
+    text-transform: uppercase;
+    padding: $-s-xxxs 0;
+  }
 
   &__body {
     min-height: 250px;
     overflow-x: scroll;
     resize: none;
+  }
+  &__input,
+  &__textarea {
+    background-color: #fb9d98;
+    width: 100%;
+    border-radius: $-s-xs;
+    padding: $-s-xxs;
+    outline: none;
+    border: none;
+  }
+  .textarea--body {
+    height: 100px;
+    margin-bottom: $-s-lg;
   }
 }

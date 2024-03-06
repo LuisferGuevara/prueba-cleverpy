@@ -21,11 +21,9 @@
   &--wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: $-s-lg;
+    gap: $-s-sm;
     justify-items: center;
     width: 100%;
-    max-width: 1300px;
-
   }
   &--header {
 
