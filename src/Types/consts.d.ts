@@ -26,3 +26,6 @@ export type LoggedUser = {
   id?: number | string;
   password?: string;
 };
+export type RouteProps = {
+  children: React.ReactNode;
+}
