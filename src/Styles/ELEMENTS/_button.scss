@@ -1,11 +1,32 @@
-
-.bt-back {
-    position: fixed;
-    bottom: 4vh;
-    right: 4vh;
+.button {
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 2rem;
+  font-size: 2rem;
+  padding: 1rem;
+  transition: 0.2s;
+  &--success {
     background-color: #444bd3;
-    border: none;
-    padding: 8px;
-    border-radius: 40%;
-    font-size: 1em;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bolder;
+    letter-spacing: 0.5rem;
   }
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 0px 5px 0px purple;
+  }
+  &__wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  &--login {
+    background-color: #edd3ff;
+    text-transform: uppercase;
+    font-weight: bolder;
+    letter-spacing: 0.5rem;
+  }
+}

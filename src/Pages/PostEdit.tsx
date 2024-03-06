@@ -60,7 +60,7 @@ const PostEdit: FC = () => {
             <textarea name="title" className="post--edit__textarea" defaultValue={post.title}></textarea>
             <label className="post--edit__label">Body:</label>
             <textarea name="body" className="post--edit__textarea textarea--body" defaultValue={post.body}></textarea>
-            <button className="button btn--success">- Save -</button>
+            <button className="button button--success">- Save -</button>
           </form>
         ))}
       {postState.error && <h3>Error, post not found</h3>}

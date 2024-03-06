@@ -15,9 +15,13 @@
     &:hover {
       background-color: #444bd3;
       color: whitesmoke;
+    
+    }
+    &:hover .card__title {
+      color: whitesmoke;
     }
   }
-
+  
   &--wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -35,7 +39,7 @@
   &__title {
     font-weight: 500;
     text-decoration: none;
-    transition: 0.5s;
+    color: #444bd3;
     width: 80%;
     text-transform: capitalize;
     text-align: left;

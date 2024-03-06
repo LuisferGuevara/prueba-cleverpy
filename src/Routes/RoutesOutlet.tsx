@@ -19,6 +19,7 @@ const RoutesOutlet: FC = () => {
       <Route path={ROUTES.PROFILE} element={<Profile />} />
       <Route path={ROUTES.NEW_POST} element={<NewPost />} />
       <Route path={ROUTES.LOGIN} element={<LoginPage />} />
+      <Route path={ROUTES.NO_POST} element={<Navigate to={ROUTES.HOME} />} />
       <Route path="*" element={<Navigate to={ROUTES.LOGIN} />} />
     </Routes>
   );

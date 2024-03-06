@@ -49,11 +49,14 @@ const HomePage: FC = () => {
   return (
     <>
       <Frame>
+        <div className="input--wrapper">
+
         <input
           className={`input input--search ${showSearch ? 'input--search--show' : ''}`}
           placeholder="Search"
           onChange={(e) => setSearchText(e.target.value)}
-        />
+          />
+          </div>
         {!postsError && posts && (
           <div className="card--wrapper">
             {randomizedPosts.filter(filterPosts).map((post: Post) => (

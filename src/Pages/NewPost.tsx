@@ -43,7 +43,7 @@ const NewPost: FC = () => {
             className="post--edit__textarea textarea--body"
             placeholder="body"
           ></textarea>
-          <button className="button btn-success">- Save -</button>
+          <button className="button button--success">- Save -</button>
         </form>
       </Frame>
       <Navbar showSearch={showSearch} setShowSearch={setShowSearch} />
