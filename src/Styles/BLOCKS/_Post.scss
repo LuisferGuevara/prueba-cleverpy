@@ -3,36 +3,44 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-weight: 300;
-    margin-bottom: 2%;
     width: 90%;
+    margin-bottom: 2%;
+    font-weight: 300;
+
     @include bp-md {
       width: 70%;
     }
   }
+
   &__header {
     width: 100%;
     padding-bottom: $-s-xs;
     border-bottom: 1px solid;
   }
+
   &__title {
-    text-transform: capitalize;
     margin-bottom: 1rem;
+    text-transform: capitalize;
   }
+
   &__id,
   &__date,
   &__author-info {
     font-weight: 200;
+
     span {
       font-style: italic;
     }
   }
+
   &__body {
     margin: 6px 0;
+
     &::first-letter {
       text-transform: capitalize;
     }
   }
+
   &__action {
     width: 100%;
     display: flex;
@@ -40,6 +48,7 @@
     justify-content: flex-end;
   }
 }
+
 .post--edit {
   display: flex;
   flex-direction: column;
@@ -50,9 +59,10 @@
     resize: none;
     overflow-x: scroll;
   }
+
   &__label {
-    text-transform: uppercase;
     padding: $-s-xxxs 0;
+    text-transform: uppercase;
   }
 
   &__body {
@@ -60,15 +70,17 @@
     overflow-x: scroll;
     resize: none;
   }
+
   &__input,
   &__textarea {
-    background-color: $-c-form-input;
     width: 100%;
-    border-radius: $-s-xs;
     padding: $-s-xxs;
+    border-radius: $-s-xs;
+    background-color: $-c-form-input;
     outline: none;
     border: none;
   }
+
   .textarea--body {
     height: 100px;
     margin-bottom: $-s-lg;

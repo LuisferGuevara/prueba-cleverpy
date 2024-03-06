@@ -2,52 +2,60 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: $-s-xs;
   width: 95%;
+  padding-top: $-s-xs;
+
   @include bp-md {
     width: 85%;
   }
+
   &__title {
-    text-align: center;
     width: 100%;
+    text-align: center;
     border-bottom: 1px solid;
     padding-bottom: 8px;
     margin-bottom: 1em;
   }
+
   &__card {
     background-color: $-c-blue-2;
     border-radius: 20px;
     margin: $-s-xxs;
-    font-size: 1.5rem;
     padding: $-s-xxs $-s-xs;
+    font-size: 1.5rem;
   }
 
   &__header {
     width: 100%;
 
     h4 {
+      margin-bottom: 6px;
       font-weight: 400;
       text-transform: lowercase;
-      margin-bottom: 6px;
+
       &::first-letter {
         text-transform: capitalize;
       }
     }
   }
+
   &__body {
     width: 100%;
     text-align: left;
     font-weight: 300;
     color: $-c-text;
+
     &::first-letter {
       text-transform: capitalize;
     }
   }
+
   &__action {
     width: 100%;
     display: flex;
-    align-self: flex-end;
     justify-content: flex-end;
+    align-self: flex-end;
+
     i {
       margin: 0 $-s-xxs;
     }

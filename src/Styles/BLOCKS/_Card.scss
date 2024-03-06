@@ -11,17 +11,15 @@
   cursor: pointer;
 
   &--post {
-
     &:hover {
       background-color: $-c-blue-1;
       color: whitesmoke;
-    
     }
     &:hover .card__title {
       color: whitesmoke;
     }
   }
-  
+
   &--wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -29,21 +27,23 @@
     justify-items: center;
     width: 100%;
   }
-  &--header {
 
+  &--header {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+
   &__title {
     font-weight: 500;
     text-decoration: none;
-    color:$-c-blue-1;
+    color: $-c-blue-1;
     width: 80%;
     text-transform: capitalize;
     text-align: left;
   }
+
   &--link {
     background-color: $-c-pink;
     height: fit-content;
@@ -74,7 +74,8 @@
     border-bottom: 1px solid;
     width: fit-content;
   }
-  &__action { 
+
+  &__action {
     display: flex;
     align-self: flex-end;
     justify-content: space-between;

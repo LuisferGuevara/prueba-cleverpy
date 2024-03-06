@@ -1,18 +1,21 @@
 @import '../SETTINGS/colors'; 
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 html {
   font-size: 8px;
 }
+
 body {
   @include colors();
   background-color: $-c-body;
-  color:$-c-text;
+  color: $-c-text;
   font-family: "Inter", sans-serif;
   font-size: 2rem;
   line-height: 1.3;
-  transition: all 0.3 ease;
+  transition: all 0.3s ease;
 }

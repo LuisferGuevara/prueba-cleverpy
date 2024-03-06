@@ -5,7 +5,7 @@ import { Post } from "../Types/consts";
 import PostAPI from "../Services/PostAPI";
 import Navbar from "../Components/Navbar";
 import AsideBar from "../Components/AsideBar";
-import GoBackButton from "../Components/GoBackButton";
+
 
 const NewPost: FC = () => {
   const dispatch = useDispatch();
@@ -48,7 +48,6 @@ const NewPost: FC = () => {
       </Frame>
       <Navbar showSearch={showSearch} setShowSearch={setShowSearch} />
       <AsideBar showSearch={showSearch} setShowSearch={setShowSearch} />
-      <GoBackButton />
     </>
   );
 };

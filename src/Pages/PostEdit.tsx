@@ -7,7 +7,6 @@ import { Post } from "../Types/consts";
 import PostAPI from "../Services/PostAPI";
 import Navbar from "../Components/Navbar";
 import AsideBar from "../Components/AsideBar";
-import GoBackButton from "../Components/GoBackButton";
 
 
 type ParamsType = {
@@ -67,8 +66,7 @@ const PostEdit: FC = () => {
       <Navbar showSearch={showSearch} setShowSearch={setShowSearch}/>
       <AsideBar showSearch={showSearch} setShowSearch={setShowSearch}/>
  
-    </Frame>
-    <GoBackButton/>
+    </Frame> 
     </>
   );
 };

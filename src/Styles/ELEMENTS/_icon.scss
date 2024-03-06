@@ -1,23 +1,29 @@
+@import '../SETTINGS/colors';
+
 .fa {
-    &-plus {
-      font-size:2rem;
-      color: $-c-blue-1;
-    }
-    &-x,
-    &-pen-to-square {
-      cursor: pointer;
-      font-size: 2rem;
-      &:hover {
-        box-shadow: 0px 5px 5px white;
-      }
-    }
-    &-moon,&-sun{
-      cursor: pointer;
-      font-size: 3rem;
-      padding: 2rem;
-    }
+  &-plus {
+    font-size: 2rem;
+    color: $-c-blue-1;
   }
-  .icon{
+
+  &-x,
+  &-pen-to-square {
     cursor: pointer;
     font-size: 2rem;
+    &:hover {
+      box-shadow: 0px 5px 5px white;
+    }
   }
+
+  &-moon,
+  &-sun {
+    cursor: pointer;
+    font-size: 3rem;
+    padding: 2rem;
+  }
+}
+
+.icon {
+  cursor: pointer;
+  font-size: 2rem;
+}

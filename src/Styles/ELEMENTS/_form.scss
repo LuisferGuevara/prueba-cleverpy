@@ -15,6 +15,7 @@
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 16px;
+
     &--login {
       font-weight: 600;
       font-size: 3rem;
@@ -27,15 +28,16 @@
     color: rgb(131, 17, 17);
     text-align: center;
   }
+
   &--login {
     background-color: $-c-login;
     height: 300px;
-    input{
+
+    input {
       height: 40px;
       padding: 2rem;
       border-radius: 2rem;
       border: none;
-
     }
   }
 }

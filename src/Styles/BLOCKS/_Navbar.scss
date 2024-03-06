@@ -1,20 +1,22 @@
 .navbar {
-  background-color: $-c-navigation;
-  height: 5rem;
   position: fixed;
   bottom: 0;
-  right: 0;
   left: 0;
-  display: flex;
+  right: 0;
   width: 100%;
-  padding: 4px 0;
+  height: 5rem;
+  background-color: $-c-navigation;
+  display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 4px 0;
+
   i {
     font-size: 1.4em;
+    color: $-c-icon;
     cursor: pointer;
-    color:$-c-icon;
   }
+
   @include bp-md {
     display: none;
   }
