@@ -42,8 +42,8 @@ const PostEdit: FC = () => {
     <>
       <Frame center>
         {postState.posts &&
-          postState.posts.map((post: Post) => (
-            <form key={post.id ? post.id.toString() : ""} className="form post--edit" onSubmit={(e) => sendData(e)}>
+          postState.posts.map((post: Post, i) => (
+            <form key={i} className="form post--edit" onSubmit={(e) => sendData(e)}>
               <h4>Edit this post</h4>
               <label className="post--edit__label">
                 {" "}

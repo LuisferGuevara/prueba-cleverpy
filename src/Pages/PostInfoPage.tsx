@@ -45,8 +45,8 @@ const PostInfoPage: FC = () => {
       <Frame>
         <section className="post--info__wrapper">
           {postState.posts &&
-            postState.posts.map((post: Post) => (
-              <article className="post--info__post card">
+            postState.posts.map((post: Post, i) => (
+              <article key={i} className="post--info__post card">
                 <header className="post--info__header">
                   <h3 className="post--info__title">{post.title}</h3>
                   <p className="post--info__id">
@@ -83,8 +83,8 @@ const PostInfoPage: FC = () => {
         <section className="comments">
           <h3 className="comments__title">Comments: </h3>
           {commentsState.comments &&
-            commentsState.comments.map((comment: Comment) => (
-              <article key={`${comment.id}-${comment.name}`} className="comments comments__card ">
+            commentsState.comments.map((comment: Comment, i) => (
+              <article key={i} className="comments comments__card ">
                 <header className="comments__header">
                   <h4 className="comments__author">Written by: {comment.email}</h4>
                   <h4 className="comments__name">{comment.name}</h4>
