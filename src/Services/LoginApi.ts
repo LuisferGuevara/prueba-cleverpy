@@ -16,7 +16,7 @@ const LoginAPI = {
           type: "POST_LOGIN",
           loggedUser: user,
         });
-      }, 5000);
+      }, 3000);
     } else {
       dispatch({
         type: "ERROR_LOGIN",

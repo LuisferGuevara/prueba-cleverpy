@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction, useState } from "react";
+import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
 import ColorSwitcher from "./ColorSwitcher";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -11,9 +11,24 @@ type AsideBarProps = {
 };
 
 export const AsideBar: FC<AsideBarProps> = ({ showSearch, setShowSearch }) => {
-  const [isLightMode, setIsLightMode] = useState(true);
-  const navigate = useNavigate();
+  const [isLightMode, setIsLightMode] = useState(() => {
+    const savedMode = localStorage.getItem("theme");
+    return savedMode ? savedMode === "light" : true;
+  });
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const body$$ = document.querySelector("body");
+    if (body$$) {
+      if (isLightMode) {
+        body$$.removeAttribute("data-dark-mode");
+      } else {
+        body$$.setAttribute("data-dark-mode", "true");
+      }
+    }
+    localStorage.setItem("theme", isLightMode ? "light" : "dark");
+  }, [isLightMode]);
 
   const handleSearchInput = () => {
     setShowSearch(!showSearch);
@@ -26,11 +41,8 @@ export const AsideBar: FC<AsideBarProps> = ({ showSearch, setShowSearch }) => {
   };
 
   const toggleTheme = () => {
-    setIsLightMode(prevIsLightMode => !prevIsLightMode);
-    const body$$ = document.querySelector('body');
-    body$$?.toggleAttribute('data-dark-mode');
+    setIsLightMode((prevIsLightMode) => !prevIsLightMode);
   };
-
   return (
     <ul className="sidebar">
       <li>
