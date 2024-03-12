@@ -4,6 +4,7 @@ import { Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Frame from "../Components/Frame";
 import LoginAPI from "../Services/LoginApi";
+import Loader from "../Components/Loader";
 
 type FormData = {
   username: string;
@@ -35,6 +36,7 @@ const LoginPage: FC = () => {
 
   return (
     <Frame center>
+      <Loader />
       <form className="form--login form" onSubmit={onSubmit}>
         <p className="form__title form__title--login"> Login to Dashboard</p>
         {loginError && <div className="form__error">User not found!</div>}

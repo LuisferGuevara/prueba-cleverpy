@@ -10,6 +10,7 @@ import CommentAPI from "../Services/CommentAPI";
 import PostAPI from "../Services/PostAPI";
 import Navbar from "../Components/Navbar";
 import AsideBar from "../Components/AsideBar";
+import Loader from "../Components/Loader";
 
 type ParamsType = {
   id: string;
@@ -42,6 +43,7 @@ const PostInfoPage: FC = () => {
 
   return (
     <>
+      <Loader />
       <Frame>
         <section className="post--info__wrapper">
           {postState.posts &&
@@ -90,7 +92,7 @@ const PostInfoPage: FC = () => {
                   <h4 className="comments__name">{comment.name}</h4>
                 </header>
                 <main className="comments__body">
-                  <p >{comment.body}</p>
+                  <p>{comment.body}</p>
                 </main>
                 <footer className="comments__action">
                   <i className="fa-solid fa-thumbs-up"></i>

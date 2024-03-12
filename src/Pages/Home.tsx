@@ -9,6 +9,7 @@ import UserService from "../Services/UserAPI";
 import PostAPI from "../Services/PostAPI";
 import { Post } from "../Types/consts";
 import { shuffleAPI } from "../Utils/shuffleApi";
+import Loader from "../Components/Loader";
 
 const HomePage: FC = () => {
   const dispatch = useDispatch();
@@ -44,28 +45,26 @@ const HomePage: FC = () => {
 
   return (
     <>
+      <Loader />
       <Frame>
         <div className="input--wrapper">
-
-        <input
-          className={`input input--search ${showSearch ? 'input--search--show' : ''}`}
-          placeholder="Search"
-          onChange={(e) => setSearchText(e.target.value)}
+          <input
+            className={`input input--search ${showSearch ? "input--search--show" : ""}`}
+            placeholder="Search"
+            onChange={(e) => setSearchText(e.target.value)}
           />
-          </div>
+        </div>
         {!postsError && posts && (
           <div className="card--wrapper">
             {randomizedPosts.filter(filterPosts).map((post: Post, index: number) => (
-              <Card key={`${post.id}-${index}`}  post={post} posts={posts} users={users} />
+              <Card key={`${post.id}-${index}`} post={post} posts={posts} users={users} />
             ))}
           </div>
         )}
         {postsError && <h3>Error, data not found</h3>}
       </Frame>
-      <Navbar showSearch={showSearch} setShowSearch={setShowSearch}/>
-      <AsideBar showSearch={showSearch} setShowSearch={setShowSearch}/>
-
- 
+      <Navbar showSearch={showSearch} setShowSearch={setShowSearch} />
+      <AsideBar showSearch={showSearch} setShowSearch={setShowSearch} />
     </>
   );
 };
