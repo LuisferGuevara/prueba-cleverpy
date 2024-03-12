@@ -11,7 +11,6 @@ const Loader: FC = () => {
       {loading &&
         <div className="loader--wrapper">
           <span className="loader"></span>
-          <p>Loading...</p>
         </div>
       }
     </>
